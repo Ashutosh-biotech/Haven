@@ -39,7 +39,7 @@ export const Header = () => {
                 <h1 className="text-6xl text-white font-extrabold tracking-widest drop-shadow-lg mb-3">
                     HAVEN
                 </h1>
-                <p className="text-white/80 text-lg text-center max-w-md mb-10">
+                <p className="text-white/80 text-2xl text-center max-w-md mb-10">
                     Hotel Booking Place — see and explore more about my project.
                 </p>
 
