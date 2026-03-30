@@ -7,7 +7,7 @@ export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
 
     return (
-        <header className="fixed left-0 right-0 top-0 z-50 bg-white/10 backdrop-blur-lg border-b border-white/10">
+        <header className="fixed left-0 right-0 top-0 z-50 bg-black/80 backdrop-blur-lg border-b border-white/10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
                 <div className="flex h-16 items-center justify-between">
                     {/* Logo */}
@@ -25,12 +25,12 @@ export const Navbar = () => {
                                     <li key={item} className="group relative">
                                         <Link
                                             href="#"
-                                            className="inline-block py-2 transition-colors duration-300 hover:text-teal-400"
+                                            className="inline-block py-2 text-xl transition-colors duration-300 hover:text-teal-400"
                                         >
                                             {item}
                                         </Link>
                                         {/* Animated underline on hover */}
-                                        <span className="absolute -bottom-1 left-0 h-0.5 w-0 bg-teal-400 transition-all duration-300 group-hover:w-full" />
+                                        <span className="absolute -bottom-1 left-1/2 -translate-x-1/2 h-1 w-0 bg-teal-400 transition-all duration-300 group-hover:w-full rounded" />
                                     </li>
                                 ))}
                             </ul>
