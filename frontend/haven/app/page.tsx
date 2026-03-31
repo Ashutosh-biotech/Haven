@@ -1,5 +1,6 @@
 import { Navbar } from "../components/Navbar";
 import { DestinationsCarousel } from "./components/DestinationsCarousel";
+import { FeaturedHotels } from "./components/FeaturedHotels";
 import { Header } from "./components/Header";
 
 export default function Home() {
@@ -8,6 +9,7 @@ export default function Home() {
       <Navbar />
       <Header />
       <DestinationsCarousel />
+      <FeaturedHotels />
     </>
   );
 }
