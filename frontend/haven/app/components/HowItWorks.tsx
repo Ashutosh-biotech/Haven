@@ -48,10 +48,10 @@ const steps: Step[] = [
 
 const HowItWorks: React.FC = () => {
   return (
-    <section className="relative bg-gradient-to-b from-slate-50 to-white py-24 px-6 overflow-hidden">
+    <section className="relative bg-linear-to-b from-slate-50 to-white py-24 px-6 overflow-hidden">
       {/* Decorative background elements */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-px bg-linear-to-r from-transparent via-slate-200 to-transparent" />
       </div>
 
       <div className="max-w-6xl mx-auto">
