@@ -1,8 +1,8 @@
 "use client";
 
-import Images from "@/components/Image";
+import Images from "@/components/ui/Image";
 import React, { useState, useEffect, useCallback } from "react";
-import { Testimonial } from "./type";
+import { Testimonial } from "../../types/type";
 
 const testimonials: Testimonial[] = [
   {

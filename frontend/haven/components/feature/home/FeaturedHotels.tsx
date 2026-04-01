@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { type HotelMap } from "./type";
-import Images from "@/components/Image";
+import { type HotelMap } from "../../types/type";
+import Images from "@/components/ui/Image";
 import { getHotels } from "@/lib";
 
 export async function FeaturedHotels(): Promise<React.ReactNode> {

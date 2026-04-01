@@ -1,4 +1,4 @@
-import Images from "@/components/Image";
+import Images from "@/components/ui/Image";
 import React from "react";
 
 // STEP 1: Replace this div with your Browse/Search SVG

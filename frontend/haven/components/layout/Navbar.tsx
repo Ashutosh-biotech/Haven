@@ -1,5 +1,5 @@
 "use client";
-import Images from './Image';
+import Images from '../ui/Image';
 import Link from 'next/link';
 import { useState } from 'react';
 

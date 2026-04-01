@@ -1,5 +1,5 @@
 "use client";
-import Images from "@/components/Image";
+import Images from "@/components/ui/Image";
 import header_bg from "@/assets/images/header-bg.png";
 import React, { useState } from 'react';
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect, useState } from "react";
-import Images from "@/components/Image";
+import Images from "@/components/ui/Image";
 
 const cities = [
   { name: "Bengaluru", href: "/hotels-in-bengaluru" },
