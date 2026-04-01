@@ -101,7 +101,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                                         <div className="relative p-4 sm:p-6 lg:p-8 text-white z-10">
                                             <h3 className="text-xl sm:text-2xl font-medium">{data.name}</h3>
                                             <p className="mt-2 text-md text-gray-200">
-                                                Experience the vibrant culture and iconic landmarks of {data.name}.
+                                                Explore the Hotels and places in {data.name}.
                                             </p>
                                         </div>
                                     </div>
