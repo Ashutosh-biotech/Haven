@@ -13,7 +13,7 @@ function normalize(query: string) {
   return query.toLowerCase().trim();
 }
 
-export async function getImage(query: string): Promise<ImageResult | null> {
+export async function getImage(query: string): Promise<ImageResult> {
   const cleanQuery = normalize(query);
 
   // 1. Cache
@@ -36,9 +36,15 @@ export async function getImage(query: string): Promise<ImageResult | null> {
       }
     }
 
-    return null;
+    return {
+      url: "https://images.pexels.com/photos/27968632/pexels-photo-27968632.jpeg",
+      source: "404 not found",
+    };
   } catch (err) {
     console.error("Image Service Error:", err);
-    return null;
+    return {
+      url: "https://images.pexels.com/photos/27968632/pexels-photo-27968632.jpeg",
+      source: "404 not found",
+    };
   }
 }
