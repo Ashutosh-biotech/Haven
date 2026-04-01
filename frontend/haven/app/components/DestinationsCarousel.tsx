@@ -8,14 +8,16 @@ import jaipurImage from "../assets/images/Front-facade-of-Palace-of-the-Winds-Ha
 import udaipurImage from "../assets/images/Pichola_Lake_in_Udaipur_TravellersofIndia.jpeg";
 import Images from "@/components/Image";
 import { citiesType } from "./type";
+import Link from "next/link";
+import Routes from "@/router/routes";
 
 const cities: citiesType[] = [
-    {name: "Bengaluru", slug: "bengaluru", img: bengaluruImage, url: "#"},
-    {name: "Chennai", slug: "chennai", img: chennaiImage, url: "#"},
-    {name: "Coorg", slug: "coorg", img: coorgImage, url: "#"},
-    {name: "Jaipur", slug: "jaipur", img: jaipurImage, url: "#"},
-    {name: "Udaipur", slug: "udaipur", img: udaipurImage, url: "#"},
-    {name: "View All Cities", slug: "view-all", url: "#", isReadMore: true},
+    {name: "Bengaluru", slug: "bengaluru", img: bengaluruImage, url: Routes.city("bengaluru")},
+    {name: "Chennai", slug: "chennai", img: chennaiImage, url: Routes.city("chennai")},
+    {name: "Coorg", slug: "coorg", img: coorgImage, url: Routes.city("coorg")},
+    {name: "Jaipur", slug: "jaipur", img: jaipurImage, url: Routes.city("jaipur")},
+    {name: "Udaipur", slug: "udaipur", img: udaipurImage, url: Routes.city("udaipur")},
+    {name: "View All Cities", slug: "view-all", url: Routes.cities(), isReadMore: true},
 ];
 
 export const DestinationsCarousel = (): React.ReactNode => {
@@ -57,7 +59,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                             key={data.slug}
                             className="snap-start shrink-0 w-full sm:w-1/2 lg:w-1/3"
                         >
-                            <a
+                            <Link
                                 href={data.url}
                                 className="group relative block h-64 sm:h-80 lg:h-96 w-full rounded overflow-hidden"
                             >
@@ -104,7 +106,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                                         </div>
                                     </div>
                                 )}
-                            </a>
+                            </Link>
                         </div>
                     ))}
                 </div>
