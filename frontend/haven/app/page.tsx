@@ -5,7 +5,7 @@ import { Header } from "./components/Header";
 import HowItWorks from "./components/HowItWorks";
 import TestimonialsCarousel from "./components/TestimonialsCarousel";
 
-export default function Home() {
+export default function Home(): React.ReactNode {
   return (
     <>
       <Header />

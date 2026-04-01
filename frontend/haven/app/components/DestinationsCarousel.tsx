@@ -7,15 +7,7 @@ import coorgImage from "../assets/images/coorg-hill-station1.jpg";
 import jaipurImage from "../assets/images/Front-facade-of-Palace-of-the-Winds-Hawa-Mahal-Jaipur-Rajasthan-India.jpg";
 import udaipurImage from "../assets/images/Pichola_Lake_in_Udaipur_TravellersofIndia.jpeg";
 import Images from "@/components/Image";
-
-
-type citiesType = {
-    name: string;
-    slug: string;
-    img?: string | StaticImageData;
-    url: string;
-    isReadMore?: boolean;
-};
+import { citiesType } from "./type";
 
 const cities: citiesType[] = [
     {name: "Bengaluru", slug: "bengaluru", img: bengaluruImage, url: "#"},
@@ -26,18 +18,14 @@ const cities: citiesType[] = [
     {name: "View All Cities", slug: "view-all", url: "#", isReadMore: true},
 ];
 
-export const DestinationsCarousel = () => {
+export const DestinationsCarousel = (): React.ReactNode => {
     return (
         <section className="py-12 flex justify-center items-center bg-white">
             <div className="container flex flex-col gap-5">
-
-
                 <div className="flex justify-between items-center">
                     <span className="text-2xl font-bold text-gray-900">
                         Cities We Incorporate
                     </span>
-
-
                     <div className="inline-flex gap-4">
                         <button
                             onClick={() =>

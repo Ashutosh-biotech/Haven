@@ -2,21 +2,21 @@ import Images from "@/components/Image";
 import React from "react";
 
 // STEP 1: Replace this div with your Browse/Search SVG
-const BrowseIcon = () => (
+const BrowseIcon = (): React.ReactNode => (
   <div className="w-full h-full flex items-center justify-center text-teal-600 p-4">
     {Images.SEARCH_LOCATION}
   </div>
 );
 
 // STEP 2: Replace this div with your Compare/Balance SVG
-const CompareIcon = () => (
+const CompareIcon = (): React.ReactNode => (
   <div className="w-full h-full flex items-center justify-center text-teal-600 p-3">
     {Images.SCALE_UNBALANCED}
   </div>
 );
 
 // STEP 3: Replace this div with your Calendar/Booking SVG
-const BookIcon = () => (
+const BookIcon = (): React.ReactNode => (
   <div className="w-full h-full flex items-center justify-center text-teal-600 p-4">
     {Images.CALENDAR_IMAGE}
   </div>

@@ -3,22 +3,22 @@ import Images from "@/components/Image";
 import header_bg from "./images/header-bg.png";
 import React, { useState } from 'react';
 
-const today = new Date().toISOString().split("T")[0];
+const today: string = new Date().toISOString().split("T")[0];
 
 const formatDisplayDate = (dateString: string): string => {
     if (!dateString) return "";
-    const date = new Date(dateString);
-    const dayMonth = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
-    const year = date.getFullYear();
+    const date: Date = new Date(dateString);
+    const dayMonth: string = date.toLocaleDateString('en-GB', { day: 'numeric', month: 'short' });
+    const year: number = date.getFullYear();
     return `${dayMonth}, ${year}`;
 };
 
-export const Header = () => {
+export const Header = (): React.ReactNode => {
     const [checkInDate, setCheckInDate] = useState<string>("");
     const [checkOutDate, setCheckOutDate] = useState<string>("");
 
     function handleChange(event: React.ChangeEvent<HTMLInputElement>): void {
-        const { id, value } = event.target;
+        const { id, value }: { id: string; value: string } = event.target;
         if (id === "check-in") {
             setCheckInDate(value);
             // Reset check-out if it's now before the new check-in
@@ -44,7 +44,7 @@ export const Header = () => {
                 </p>
 
                 <form
-                    onSubmit={(e) => e.preventDefault()}
+                    onSubmit={(e): void => e.preventDefault()}
                     className="flex flex-wrap items-end bg-white rounded-2xl shadow-2xl p-6 gap-6 w-full max-w-4xl"
                 >
                     {/* Destination */}

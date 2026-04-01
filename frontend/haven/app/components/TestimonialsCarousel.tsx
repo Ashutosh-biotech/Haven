@@ -2,18 +2,7 @@
 
 import Images from "@/components/Image";
 import React, { useState, useEffect, useCallback } from "react";
-
-interface Testimonial {
-  id: number;
-  name: string;
-  role: string;
-  location: string;
-  content: string;
-  rating: number;
-  initials: string;
-  gradient: string;
-  propertyType: string;
-}
+import { Testimonial } from "./type";
 
 const testimonials: Testimonial[] = [
   {
@@ -84,7 +73,7 @@ const testimonials: Testimonial[] = [
   },
 ];
 
-const StarRating: React.FC<{ rating: number }> = ({ rating }) => (
+const StarRating: React.FC<{ rating: number }> = ({ rating }: { rating: number }): React.ReactNode => (
   <div className="flex gap-0.5">
     {[...Array(5)].map((_, i) => (
       <svg
@@ -104,33 +93,33 @@ const QuoteIcon: React.FC = () => (
   </svg>
 );
 
-const PropertyBadge: React.FC<{ type: string }> = ({ type }) => (
+const PropertyBadge: React.FC<{ type: string }> = ({ type }: { type: string}): React.ReactNode => (
   <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-teal-100 text-teal-700 border border-teal-200">
     {type}
   </span>
 );
 
-const TestimonialsCarousel: React.FC = () => {
-  const [currentIndex, setCurrentIndex] = useState(0);
-  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+const TestimonialsCarousel: React.FC = (): React.ReactNode => {
+  const [currentIndex, setCurrentIndex] = useState<number>(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState<boolean>(true);
 
-  const nextSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev + 1) % testimonials.length);
+  const nextSlide = useCallback((): void => {
+    setCurrentIndex((prev: number): number => (prev + 1) % testimonials.length);
   }, []);
 
-  const prevSlide = useCallback(() => {
-    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
+  const prevSlide = useCallback((): void => {
+    setCurrentIndex((prev: number): number => (prev - 1 + testimonials.length) % testimonials.length);
   }, []);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index: number): void => {
     setCurrentIndex(index);
     setIsAutoPlaying(false);
     setTimeout(() => setIsAutoPlaying(true), 10000);
   };
 
-  useEffect(() => {
+  useEffect((): (() => void) | void => {
     if (!isAutoPlaying) return;
-    const interval = setInterval(nextSlide, 5000);
+    const interval: NodeJS.Timeout = setInterval(nextSlide, 5000);
     return () => clearInterval(interval);
   }, [isAutoPlaying, nextSlide]);
 

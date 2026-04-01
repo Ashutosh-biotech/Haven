@@ -3,9 +3,9 @@ import { type HotelMap } from "./type";
 import { hotels } from "../api/home/routes";
 import Images from "@/components/Image";
 
-export async function FeaturedHotels() {
-    const hotelsData = await hotels();
-    const results = hotelsData?.results || [];
+export async function FeaturedHotels(): Promise<React.ReactNode> {
+    const hotelsData: any = await hotels();
+    const results: HotelMap[] = hotelsData?.results || [];
 
     return (
         <section className="mb-10">

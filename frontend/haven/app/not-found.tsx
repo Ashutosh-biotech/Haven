@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 
-export default function NotFound() {
+export default function NotFound(): React.ReactNode {
   return (
     <main className="min-h-screen bg-slate-50 flex flex-col items-center justify-center p-6 text-center overflow-hidden relative">
       
