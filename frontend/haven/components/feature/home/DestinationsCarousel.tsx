@@ -8,7 +8,7 @@ import udaipurImage from "@/assets/images/Pichola_Lake_in_Udaipur_TravellersofIn
 import Images from "@/components/ui/Image";
 import Routes from "@/router/routes";
 import { StaticImageData } from "next/image";
-import CityCard from "@/components/ui/cityCard";
+import CityCard from "@/components/ui/CityCard";
 
 type citiesType = {
     name: string;
@@ -62,7 +62,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                     className="flex gap-5 overflow-x-auto scroll-smooth snap-x snap-mandatory px-2 no-scrollbar"
                 >
                     {cities.map((data) => (
-                        <CityCard data={data} />
+                        <CityCard data={data} key={data.name}/>
                     ))}
                 </div>
             </div>

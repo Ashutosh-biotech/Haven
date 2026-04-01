@@ -1,8 +1,6 @@
 import { getHotels, getImage } from "@/lib";
-import Image from "next/image";
-import Link from "next/link";
 import Routes from "@/router/routes";
-import CityCard from "@/components/ui/cityCard";
+import CityCard from "@/components/ui/CityCard";
 
 export default async function AllCitiesPage() {
 
@@ -21,7 +19,7 @@ export default async function AllCitiesPage() {
                         const image = await getImage(city);
 
                         return (
-                            <CityCard data={{name: city, slug: city, img: image.url, url: Routes.city(city)}} />
+                            <CityCard data={{name: city, slug: city, img: image.url, url: Routes.city(city), grid: true}} key={city} />
                         )
                     })}
                 </div>
