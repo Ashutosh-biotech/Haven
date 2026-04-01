@@ -8,6 +8,7 @@ type cityCardProps = {
         img?: string | StaticImageData;
         url: string;
         isReadMore?: boolean;
+        grid?: boolean;
     };
 }
 
@@ -15,7 +16,7 @@ export default function CityCard({data}: cityCardProps) {
     return (
         <div
             key={data.slug}
-            className="snap-start shrink-0 w-full sm:w-1/2 lg:w-1/3"
+            className={"snap-start shrink-0 w-full" + (data.grid ? "" : " sm:w-1/2 lg:w-1/3")}
         >
             <Link
                 href={data.url}
