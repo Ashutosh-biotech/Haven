@@ -2,10 +2,10 @@ type routesType = {
     [key: string]: (...args: any[]) => string;
 }
 
-const routes: routesType = {
+const Routes: routesType = {
     home: () => "/",
     cities: () => "/cities",
     city: (slug: string) => `/city/${slug}`,
 }
 
-export default routes;
+export default Routes;
