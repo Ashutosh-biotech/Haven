@@ -1,4 +1,4 @@
-import { HotelMap } from "@/components/types/hotels";
+import { HotelMap } from "@/components/interface/hotels";
 import HotelCard from "@/components/ui/HotelCard";
 import { getHotels } from "@/lib";
 

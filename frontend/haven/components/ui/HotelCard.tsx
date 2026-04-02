@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { HotelMap } from "../types/hotels";
+import { HotelMap } from "../interface/hotels";
 import Images from "./Image";
 import Routes from "@/router/routes";
 

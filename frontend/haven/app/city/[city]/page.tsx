@@ -1,6 +1,6 @@
 import { getHotels } from "@/lib";
 import HotelCard from "@/components/ui/HotelCard";
-import { HotelMap } from "@/components/types/hotels";
+import { HotelMap } from "@/components/interface/hotels";
 
 export default async function CityPage({ params }: { params: Promise<{ city: string }> }) {
     const { city } = await params;
