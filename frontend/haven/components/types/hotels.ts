@@ -1,4 +1,4 @@
-type HotelMap = {
+export interface HotelMap {
     hotelId: string,
     name: string,
     brand: string,
@@ -16,5 +16,3 @@ type HotelMap = {
     amenityCount: number,
     roomTypeCount: number
 };
-
-export { type HotelMap };
