@@ -12,11 +12,14 @@ export default function HotelCard({hotel}: {hotel: HotelMap}) {
                     src={hotel.thumbnailUrl}
                     alt={hotel.name}
                 />
-                <div className="absolute top-3 left-3 flex gap-2">
+                {
+                    hotel.averageRating === null ? "" : (<div className="absolute top-3 left-3 flex gap-2">
                     <span className="bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-2 py-1 rounded shadow-sm flex gap-2 items-center">
                         {hotel.averageRating} <span className="size-3">{Images.STAR}</span>
                     </span>
-                </div>
+                    </div>)
+                }
+
             </div>
 
             <div className="p-5">

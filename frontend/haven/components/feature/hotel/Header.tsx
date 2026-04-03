@@ -7,7 +7,7 @@ interface PropsMap {
     brand: string;
     city: string;
     state: string;
-    averageRating: number;
+    averageRating?: number | null;
     totalReviews: number;
 }
 

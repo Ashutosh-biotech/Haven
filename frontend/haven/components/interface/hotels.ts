@@ -10,7 +10,7 @@ export interface HotelMap {
     city: string,
     state: string,
     thumbnailUrl: string,
-    averageRating: number,
+    averageRating?: number | null,
     totalReviews: number,
     startingPrice: number,
     amenityCount: number,
