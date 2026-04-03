@@ -29,7 +29,7 @@ export default function RoomCards({ roomTypes }: RoomCardsProps) {
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   />
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/50 via-transparent to-transparent" />
 
                 {/* Tags */}
                 <div className="absolute top-3 right-3 flex gap-2">

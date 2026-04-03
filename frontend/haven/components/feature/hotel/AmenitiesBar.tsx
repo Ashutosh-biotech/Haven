@@ -77,7 +77,7 @@ export default function AmenitiesBar({ amenities, freeCancellation, payAtHotelOp
   }
 
   return (
-    <div className="w-full bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-b border-white/10">
+    <div className="w-full bg-linear-to-r from-gray-900 via-gray-800 to-gray-900 border-t border-b border-white/10">
       <div className="max-w-6xl mx-auto px-4 py-4">
         <div className="flex items-center justify-center gap-6 flex-wrap">
           {items.map((item, idx) => (

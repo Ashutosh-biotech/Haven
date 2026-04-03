@@ -22,7 +22,7 @@ function RatingBar({ label, value, max = 5 }: { label: string; value?: number; m
       <span className="text-sm text-gray-600 w-24 shrink-0">{label}</span>
       <div className="flex-1 h-2.5 bg-gray-100 rounded-full overflow-hidden">
         <div
-          className="h-full bg-gradient-to-r from-teal-500 to-teal-400 rounded-full transition-all duration-1000 ease-out"
+          className="h-full bg-linear-to-r from-teal-500 to-teal-400 rounded-full transition-all duration-1000 ease-out"
           style={{ width: `${percentage}%` }}
         />
       </div>
@@ -114,7 +114,7 @@ export default function GuestReviews({ ratings, latestReviews }: GuestReviewsPro
             >
               <div className="flex items-center gap-2 mb-2">
                 {/* Avatar */}
-                <div className="size-9 rounded-full bg-gradient-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-bold text-sm shadow-sm">
+                <div className="size-9 rounded-full bg-linear-to-br from-teal-500 to-teal-700 flex items-center justify-center text-white font-bold text-sm shadow-sm">
                   {review.user.displayName.charAt(0)}
                 </div>
                 <div>

@@ -27,9 +27,9 @@ export default function AwardsAndPolicies({ awards, policies }: AwardsAndPolicie
             {safeAwards.slice(0, 4).map((award, idx) => (
               <div
                 key={idx}
-                className="flex items-center gap-2 bg-gradient-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl px-3 py-2 hover:shadow-md transition-shadow"
+                className="flex items-center gap-2 bg-linear-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl px-3 py-2 hover:shadow-md transition-shadow"
               >
-                <div className="size-10 rounded-full bg-gradient-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-white shadow-sm">
+                <div className="size-10 rounded-full bg-linear-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-white shadow-sm">
                   <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M5 3h14a2 2 0 012 2v3a4 4 0 01-3 3.87V15a5 5 0 01-10 0v-3.13A4 4 0 013 8V5a2 2 0 012-2zm0 2v3a2 2 0 002 2h1v3a3 3 0 006 0v-3h1a2 2 0 002-2V5H5z" />
                   </svg>
