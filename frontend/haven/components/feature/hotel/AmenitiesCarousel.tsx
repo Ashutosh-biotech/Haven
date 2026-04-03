@@ -35,8 +35,10 @@ export default function AmenitiesCarousel({ amenities }: AmenitiesCarouselProps)
 
             {ameenityHasTags(amenity) && (
               <div className="mt-4 flex flex-wrap gap-2">
-                {amenity.isFree && (
+                {amenity.isFree ? (
                   <span className="text-[10px] font-bold uppercase tracking-wider bg-emerald-50 text-emerald-700 px-2 py-1 rounded-md">Free</span>
+                ) : (
+                  <span className="text-[10px] font-bold uppercase tracking-wider bg-red-50 text-red-700 px-2 py-1 rounded-md">Paid</span>
                 )}
                 {amenity.isFeatured && (
                   <span className="text-[10px] font-bold uppercase tracking-wider bg-amber-50 text-amber-700 px-2 py-1 rounded-md">Featured</span>
