@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import React, { useState } from "react";
 import login_bg from "@/assets/images/login-bg.jpg";
 import { LuUser, LuLock, LuEyeOff, LuEye, LuCircleCheck } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";

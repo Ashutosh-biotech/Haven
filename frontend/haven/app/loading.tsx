@@ -1,3 +1,5 @@
+import React from "react";
+
 export default function Loading(): React.ReactNode {
   return (
     <div className="min-h-screen bg-gray-50 animate-pulse">
@@ -11,7 +13,7 @@ export default function Loading(): React.ReactNode {
       </div>
 
       {/* Hero Section */}
-      <div className="h-[300px] bg-gray-200 w-full" />
+      <div className="h-75 bg-gray-200 w-full" />
 
       {/* Content */}
       <div className="p-6 space-y-6">

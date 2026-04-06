@@ -2,6 +2,7 @@
 
 import Link from 'next/link';
 import { LuBuilding2, LuArrowLeft } from 'react-icons/lu';
+import React from "react";
 
 export default function NotFound(): React.ReactNode {
   return (
@@ -25,10 +26,10 @@ export default function NotFound(): React.ReactNode {
 
         {/* Clear Messaging */}
         <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-4 px-4">
-          This room doesn't exist.
+          This room does not exist.
         </h2>
         <p className="text-slate-500 text-lg mb-10 px-4 max-w-md mx-auto">
-          We couldn't find the page you're looking for. Let’s get you back to your <span className="text-blue-600 font-bold">Haven</span>.
+          We could not find the page you are looking for. Let’s get you back to your <span className="text-blue-600 font-bold">Haven</span>.
         </p>
 
         {/* Primary Actions */}
@@ -61,17 +62,6 @@ export default function NotFound(): React.ReactNode {
           </div>
         </div>
       </div>
-
-      {/* Tailwind Custom Keyframes */}
-      <style jsx global>{`
-        @keyframes bounce-subtle {
-          0%, 100% { transform: translateY(0); }
-          50% { transform: translateY(-10px); }
-        }
-        .animate-bounce-subtle {
-          animation: bounce-subtle 4s ease-in-out infinite;
-        }
-      `}</style>
     </main>
   );
 }
