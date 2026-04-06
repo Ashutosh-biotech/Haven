@@ -1,6 +1,7 @@
 "use client";
 
 import Link from 'next/link';
+import { LuBuilding2, LuArrowLeft } from 'react-icons/lu';
 
 export default function NotFound(): React.ReactNode {
   return (
@@ -19,14 +20,7 @@ export default function NotFound(): React.ReactNode {
       <div className="max-w-xl w-full z-10">
         {/* Brand Icon - Small and clean above the text */}
         <div className="inline-flex items-center justify-center p-3 mb-6 bg-white rounded-2xl shadow-sm border border-slate-100">
-          <svg className="w-8 h-8 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path 
-              strokeLinecap="round" 
-              strokeLinejoin="round" 
-              strokeWidth={2} 
-              d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4" 
-            />
-          </svg>
+          <LuBuilding2 className="w-8 h-8 text-blue-600" />
         </div>
 
         {/* Clear Messaging */}
@@ -43,14 +37,7 @@ export default function NotFound(): React.ReactNode {
             href="/" 
             className="w-full sm:w-auto px-10 py-4 bg-slate-900 hover:bg-blue-600 text-white rounded-2xl font-bold shadow-xl transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center gap-2 group"
           >
-            <svg 
-              className="w-5 h-5 transition-transform group-hover:-translate-x-1" 
-              fill="none" 
-              stroke="currentColor" 
-              viewBox="0 0 24 24"
-            >
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
-            </svg>
+            <LuArrowLeft className="w-5 h-5 transition-transform group-hover:-translate-x-1" />
             Back to Safety
           </Link>
 

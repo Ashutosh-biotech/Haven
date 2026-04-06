@@ -1,4 +1,5 @@
 import { Amenity } from "@/components/interface/hotel";
+import { LuCircleCheck } from "react-icons/lu";
 
 interface AmenitiesCarouselProps {
   amenities: Amenity[];
@@ -20,11 +21,7 @@ export default function AmenitiesCarousel({ amenities }: AmenitiesCarouselProps)
           >
             <div className="flex items-center gap-3 mb-3">
               <div className="size-10 rounded-full bg-teal-50 flex items-center justify-center text-teal-600 shrink-0">
-                {/* Fallback checkmark icon if amenity.icon isn't provided or is just a string name */}
-                <svg xmlns="http://www.w3.org/2000/svg" className="size-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-                  <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" />
-                  <polyline points="22 4 12 14.01 9 11.01" />
-                </svg>
+                <LuCircleCheck className="size-5" />
               </div>
               <h4 className="font-bold text-gray-900 leading-tight">{amenity.name}</h4>
             </div>

@@ -1,5 +1,6 @@
 import { Ratings, CategoryRatings } from "@/components/interface/hotel";
 import { Review } from "@/components/interface/review";
+import { LuStar } from "react-icons/lu";
 
 interface GuestReviewsProps {
   ratings: Ratings;
@@ -133,15 +134,10 @@ export default function GuestReviews({ ratings, latestReviews }: GuestReviewsPro
                 </span>
                 <div className="flex items-center gap-1">
                   {[...Array(5)].map((_, i) => (
-                    <svg
+                    <LuStar
                       key={i}
-                      xmlns="http://www.w3.org/2000/svg"
-                      className={`size-3 ${i < review.rating ? "text-yellow-400" : "text-gray-200"}`}
-                      viewBox="0 0 24 24"
-                      fill="currentColor"
-                    >
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
+                      className={`size-3 ${i < review.rating ? "text-yellow-400 fill-yellow-400" : "text-gray-200 fill-gray-200"}`}
+                    />
                   ))}
                 </div>
               </div>

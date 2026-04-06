@@ -1,7 +1,7 @@
 "use client";
-import Images from "@/components/ui/Image";
 import header_bg from "@/assets/images/header-bg.png";
 import React, { useState } from 'react';
+import { LuSearch } from 'react-icons/lu';
 
 const today: string = new Date().toISOString().split("T")[0];
 
@@ -53,7 +53,7 @@ export const Header = (): React.ReactNode => {
                             Destination
                         </label>
                         <div className="border rounded-lg px-3 py-2.5 border-slate-300 flex gap-2 items-center focus-within:border-teal-500 focus-within:ring-1 focus-within:ring-teal-500 transition">
-                            <div className="size-5 text-slate-400 shrink-0">{Images.SEARCH_LOCATION}</div>
+                            <div className="size-5 text-slate-400 shrink-0"><LuSearch size={20} /></div>
                             <input
                                 type="text"
                                 id="destination"

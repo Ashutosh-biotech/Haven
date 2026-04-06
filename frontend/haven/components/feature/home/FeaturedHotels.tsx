@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { type HotelMap } from "../../interface/hotels";
-import Images from "@/components/ui/Image";
 import { getHotels } from "@/lib";
+import { LuBuilding2, LuArrowRight } from "react-icons/lu";
 import HotelCard from "@/components/ui/HotelCard";
 import Routes from "@/router/routes";
 
@@ -31,8 +31,8 @@ export async function FeaturedHotels(): Promise<React.ReactNode> {
 
                         <div className="relative h-full flex flex-col items-center justify-center p-8 text-center">
 
-                            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-md">
-                                {Images.HOTEL}
+                            <div className="mb-6 flex h-20 w-20 items-center justify-center rounded-full border border-white/20 bg-white/10 backdrop-blur-md text-white">
+                                <LuBuilding2 size={36} />
                             </div>
 
                             <h3 className="mb-3 text-2xl font-light tracking-widest text-white uppercase">
@@ -45,7 +45,7 @@ export async function FeaturedHotels(): Promise<React.ReactNode> {
 
                             <Link href={Routes.hotels()} className="inline-flex items-center gap-2 rounded-full bg-white px-6 py-3 text-sm font-bold text-slate-900 transition-all hover:bg-teal-500 hover:text-white group-hover:px-8">
                                 Explore All Properties
-                                <span className="size-5">{Images.ARROW_RIGHT_LONG}</span>
+                                <LuArrowRight className="size-5" />
                             </Link>
                         </div>
 

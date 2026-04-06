@@ -1,8 +1,8 @@
 "use client";
 import Routes from '@/router/routes';
-import Images from '../ui/Image';
 import Link from 'next/link';
 import { useState } from 'react';
+import { LuMenu, LuX, LuBuilding2 } from 'react-icons/lu';
 
 export const Navbar = () => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -16,7 +16,7 @@ export const Navbar = () => {
                         <Link className="block text-teal-600 transition hover:text-teal-500" href="/">
                             <span className="sr-only">Home</span>
                             {/* If Images.HOTEL is an icon, text-teal-600 ensures it matches the theme */}
-                            <div className="size-10 text-teal-600 drop-shadow-md">{Images.HOTEL}</div>
+                            <div className="size-10 text-teal-600 drop-shadow-md flex items-center justify-center"><LuBuilding2 size={36} /></div>
                         </Link>
 
                         {/* Desktop Navigation */}
@@ -64,20 +64,11 @@ export const Navbar = () => {
                             aria-label="Toggle navigation menu"
                             className="rounded-sm p-2 text-gray-300 transition hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-teal-500 md:hidden"
                         >
-                            <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                className="size-6"
-                                fill="none"
-                                viewBox="0 0 24 24"
-                                stroke="currentColor"
-                                strokeWidth={2}
-                            >
-                                {isMenuOpen ? (
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
-                                ) : (
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-                                )}
-                            </svg>
+                            {isMenuOpen ? (
+                                <LuX className="size-6" />
+                            ) : (
+                                <LuMenu className="size-6" />
+                            )}
                         </button>
                     </div>
                 </div>

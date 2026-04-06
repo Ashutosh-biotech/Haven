@@ -1,4 +1,5 @@
 import { Award } from "@/components/interface/hotel";
+import { LuTrophy } from "react-icons/lu";
 
 interface AwardsSectionProps {
   awards: Award[];
@@ -36,9 +37,7 @@ export default function AwardsSection({ awards }: AwardsSectionProps) {
             className="flex items-start gap-4 bg-linear-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-5 hover:shadow-md transition-shadow"
           >
             <div className="size-12 rounded-full bg-linear-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-white shadow-sm shrink-0 mt-1">
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-6" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M5 3h14a2 2 0 012 2v3a4 4 0 01-3 3.87V15a5 5 0 01-10 0v-3.13A4 4 0 013 8V5a2 2 0 012-2zm0 2v3a2 2 0 002 2h1v3a3 3 0 006 0v-3h1a2 2 0 002-2V5H5z" />
-              </svg>
+                <LuTrophy className="size-6" />
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-900 mb-1">{award.name}</h4>

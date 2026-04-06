@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { HotelMap } from "../interface/hotels";
-import Images from "./Image";
 import Routes from "@/router/routes";
+import { LuStar, LuMapPin } from "react-icons/lu";
 
 export default function HotelCard({hotel}: {hotel: HotelMap}) {
     return (
@@ -15,7 +15,7 @@ export default function HotelCard({hotel}: {hotel: HotelMap}) {
                 {
                     hotel.averageRating === null ? "" : (<div className="absolute top-3 left-3 flex gap-2">
                     <span className="bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-2 py-1 rounded shadow-sm flex gap-2 items-center">
-                        {hotel.averageRating} <span className="size-3">{Images.STAR}</span>
+                        {hotel.averageRating} <span className="size-3 flex items-center justify-center"><LuStar className="size-3" fill={"currentColor"} /></span>
                     </span>
                     </div>)
                 }
@@ -32,7 +32,7 @@ export default function HotelCard({hotel}: {hotel: HotelMap}) {
                             {hotel.name}
                         </h2>
                         <p className="text-sm text-slate-500 flex items-center mt-1">
-                            <span className="mr-3 size-7">{Images.MAP_LOCATION}</span>
+                            <span className="mr-3 size-7 flex items-center justify-center"><LuMapPin className="size-5" /></span>
                             {hotel.city}, {hotel.state}
                         </p>
                     </div>

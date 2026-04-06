@@ -5,7 +5,7 @@ import chennaiImage from "@/assets/images/8988706248_ddc81393bb_b.jpg";
 import coorgImage from "@/assets/images/coorg-hill-station1.jpg";
 import jaipurImage from "@/assets/images/Front-facade-of-Palace-of-the-Winds-Hawa-Mahal-Jaipur-Rajasthan-India.jpg";
 import udaipurImage from "@/assets/images/Pichola_Lake_in_Udaipur_TravellersofIndia.jpeg";
-import Images from "@/components/ui/Image";
+import { LuChevronLeft, LuChevronRight } from "react-icons/lu";
 import Routes from "@/router/routes";
 import { StaticImageData } from "next/image";
 import CityCard from "@/components/ui/CityCard";
@@ -43,7 +43,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                             className="rounded-sm border border-gray-200 p-3 size-10 transition-colors hover:bg-gray-50 hover:text-gray-900 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white focus:outline-none flex justify-center items-center cursor-pointer"
                             aria-label="Previous cities"
                         >
-                            {Images.CARET_LEFT}
+                            <LuChevronLeft size={20} />
                         </button>
 
                         <button
@@ -53,7 +53,7 @@ export const DestinationsCarousel = (): React.ReactNode => {
                             className="rounded-sm border border-gray-200 p-3 size-10 transition-colors hover:bg-gray-50 hover:text-gray-900 focus:ring-2 focus:ring-teal-500 focus:ring-offset-2 focus:ring-offset-white focus:outline-none flex justify-center items-center cursor-pointer"
                             aria-label="Next cities"
                         >
-                            {Images.CARET_RIGHT}
+                            <LuChevronRight size={20} />
                         </button>
                     </div>
                 </div>

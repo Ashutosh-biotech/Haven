@@ -1,4 +1,5 @@
 import { Landmark } from "@/components/interface/hotel";
+import { LuMapPin } from "react-icons/lu";
 
 interface PrimeLocationProps {
   address: string;
@@ -14,26 +15,19 @@ export default function PrimeLocation({ address, nearbyLandmarks, latitude, long
     <div className="bg-white rounded-2xl border border-gray-100 shadow-lg overflow-hidden">
       <div className="p-6">
         <h3 className="text-xl font-bold text-gray-900 mb-4 flex items-center gap-2">
-          <svg xmlns="http://www.w3.org/2000/svg" className="size-5 text-teal-600" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
-            <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-            <circle cx="12" cy="10" r="3" />
-          </svg>
+          <LuMapPin className="size-5 text-teal-600" />
           Prime Location
         </h3>
 
         {/* Landmarks */}
         <div className="space-y-3 mb-5">
           <div className="flex items-start gap-2">
-            <svg xmlns="http://www.w3.org/2000/svg" className="size-4 text-red-500 mt-0.5 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-              <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-            </svg>
+            <LuMapPin className="size-4 text-red-500 mt-0.5 shrink-0 fill-red-500" />
             <span className="text-sm text-gray-700">{address}</span>
           </div>
-          {nearbyLandmarks.slice(0, 4).map((landmark, idx) => (
+          {nearbyLandmarks?.slice(0, 4).map((landmark, idx) => (
             <div key={idx} className="flex items-center gap-2">
-              <svg xmlns="http://www.w3.org/2000/svg" className="size-4 text-teal-500 shrink-0" viewBox="0 0 24 24" fill="currentColor">
-                <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z" />
-              </svg>
+              <LuMapPin className="size-4 text-teal-500 shrink-0 fill-teal-500" />
               <span className="text-sm text-gray-700">{landmark.name}</span>
               <span className="text-xs text-gray-400 ml-auto">{landmark.distanceKm} km</span>
             </div>

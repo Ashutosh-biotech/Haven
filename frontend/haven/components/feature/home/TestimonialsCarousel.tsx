@@ -1,7 +1,7 @@
 "use client";
 
-import Images from "@/components/ui/Image";
 import React, { useState, useEffect, useCallback } from "react";
+import { LuMapPin, LuChevronLeft, LuChevronRight } from "react-icons/lu";
 
 type Testimonial = {
     id: number,
@@ -211,7 +211,7 @@ const TestimonialsCarousel: React.FC = (): React.ReactNode => {
                           </div>
                           <span className="hidden md:block text-slate-600">•</span>
                           <p className="text-slate-500 text-sm flex items-center gap-1 justify-center md:justify-start">
-                            <span className="size-6 mr-2">{Images.MAP_LOCATION}</span>
+                            <span className="size-6 mr-2 flex items-center justify-center"><LuMapPin className="size-5" /></span>
                             {testimonial.location}
                           </p>
                         </div>
@@ -233,9 +233,7 @@ const TestimonialsCarousel: React.FC = (): React.ReactNode => {
             className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-all duration-200 hover:scale-110 backdrop-blur-sm"
             aria-label="Previous testimonial"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
+            <LuChevronLeft className="w-6 h-6" />
           </button>
 
           <button
@@ -247,9 +245,7 @@ const TestimonialsCarousel: React.FC = (): React.ReactNode => {
             className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 w-12 h-12 rounded-full bg-white/10 hover:bg-white/20 border border-white/10 flex items-center justify-center text-white transition-all duration-200 hover:scale-110 backdrop-blur-sm"
             aria-label="Next testimonial"
           >
-            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
+            <LuChevronRight className="w-6 h-6" />
           </button>
         </div>
 
