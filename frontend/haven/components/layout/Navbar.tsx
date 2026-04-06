@@ -51,7 +51,7 @@ export const Navbar = () => {
 
                             {/* Register – Glassmorphism secondary button (visible on dark bg) */}
                             <Link
-                                href="#"
+                                href={Routes.register()}
                                 className="rounded-md bg-white/10 px-5 py-2.5 text-sm font-semibold text-white ring-1 ring-white/20 transition-all duration-300 hover:bg-white/20 hover:ring-white/40 hover:-translate-y-0.5 active:translate-y-0"
                             >
                                 Register

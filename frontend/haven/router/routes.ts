@@ -8,7 +8,8 @@ const Routes: routesType = {
     city: (slug: string) => `/city/${slug}`,
     hotels: () => "/hotels",
     hotel: (slug: string) => `/hotel/${slug}`,
-    login: () => "/login"
+    login: () => "/login",
+    register: () => "/register",
 }
 
 export default Routes;
