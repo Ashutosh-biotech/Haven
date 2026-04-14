@@ -1,4 +1,4 @@
-package app.haven.hotel.models.hotel;
+package app.haven.hotel.models.valueobject;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
@@ -14,12 +14,12 @@ import lombok.NoArgsConstructor;
 public class BookingInfo {
 
     @Builder.Default
-    private boolean instantBooking = false;
+    private Boolean instantBooking = false;
 
     @Builder.Default
-    private boolean freeCancellation = false;
+    private Boolean freeCancellation = false;
 
     @Builder.Default
-    private boolean loyaltyPointsEligible = false;
+    private Boolean loyaltyPointsEligible = false;
 
 }
