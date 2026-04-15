@@ -23,5 +23,4 @@ public class Media {
     @JoinColumn(name = "hotel_id")
     private List<GalleryItem> gallery;
 
-    private String videoTourUrl;
 }
