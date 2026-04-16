@@ -3,13 +3,12 @@ package app.haven.hotel.models.entity;
 import app.haven.hotel.models.enums.HotelStatus;
 import app.haven.hotel.models.valueobject.*;
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-
 import java.util.List;
 import java.util.Set;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Table(name = "hotels")
@@ -38,13 +37,19 @@ public class Hotel {
     @Builder.Default
     private HotelStatus status = HotelStatus.ACTIVE;
 
-    @ElementCollection
-    @CollectionTable(name = "hotel_categories", joinColumns = @JoinColumn(name = "hotel_id"))
-    @Column(name = "category")
-    private Set<String> categories;
+    @ManyToMany
+    @JoinTable(
+        name = "hotel_category_mapping",
+        joinColumns = @JoinColumn(name = "hotel_id"),
+        inverseJoinColumns = @JoinColumn(name = "category_id")
+    )
+    private Set<Category> categories;
 
     @ElementCollection
-    @CollectionTable(name = "hotel_tags", joinColumns = @JoinColumn(name = "hotel_id"))
+    @CollectionTable(
+        name = "hotel_tags",
+        joinColumns = @JoinColumn(name = "hotel_id")
+    )
     @Column(name = "tag")
     private Set<String> tags;
 
