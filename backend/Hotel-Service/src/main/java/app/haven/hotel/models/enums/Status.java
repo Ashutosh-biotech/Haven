@@ -1,6 +1,6 @@
 package app.haven.hotel.models.enums;
 
-public enum HotelStatus {
+public enum Status {
     ACTIVE,
     INACTIVE
 }
