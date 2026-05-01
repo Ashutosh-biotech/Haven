@@ -3,8 +3,8 @@ package app.haven.hotel.models.enums;
 public enum StarRating {
     ZERO,
     ONE,
-            TWO,
+    TWO,
     THREE,
-            FOUR,
+    FOUR,
     FIVE
 }
