@@ -1,13 +1,11 @@
 package app.haven.hotel.models.valueobject;
 
-import app.haven.hotel.models.entity.GalleryItem;
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-import java.util.List;
 
 @Embeddable
 @Data
@@ -16,11 +14,9 @@ import java.util.List;
 @Builder
 public class Media {
 
+    @Column(name = "media_thumbnail_url", length = 500)
     private String thumbnailUrl;
+
+    @Column(name = "media_cover_image_url", length = 500)
     private String coverImageUrl;
-
-    @OneToMany(cascade = CascadeType.ALL, orphanRemoval = true)
-    @JoinColumn(name = "hotel_id")
-    private List<GalleryItem> gallery;
-
 }
