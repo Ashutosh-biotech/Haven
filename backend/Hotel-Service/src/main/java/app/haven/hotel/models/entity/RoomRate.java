@@ -60,7 +60,7 @@ public class RoomRate {
 
     @NotNull
     @DecimalMin(value = "0.01", message = "Price must be greater than 0")
-    @Column(nullable = false, precision = 10, scale = 2)
+    @Column(nullable = false)
     private BigDecimal price;
 
     @NotNull
@@ -86,7 +86,7 @@ public class RoomRate {
     @NotNull
     @DecimalMin("0.0")
     @DecimalMax("100.0")
-    @Column(name = "discount_percentage", nullable = false, precision = 5, scale = 2)
+    @Column(name = "discount_percentage", nullable = false)
     @Builder.Default
     private BigDecimal discountPercentage = BigDecimal.ZERO;
 

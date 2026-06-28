@@ -124,7 +124,7 @@ public class Hotel {
     private LocalDateTime publishedAt;
 
     @DecimalMin("0.0")
-    @Column(name = "min_price_per_night", precision = 10, scale = 2)
+    @Column(name = "min_price_per_night")
     private BigDecimal minPricePerNight;
 
     // ── Embedded Value Objects ──────────────────────────────────────

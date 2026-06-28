@@ -57,7 +57,7 @@ public class HotelReview {
     @NotNull
     @DecimalMin("0.5")
     @DecimalMax("5.0")
-    @Column(nullable = false, precision = 3, scale = 1)
+    @Column(nullable = false)
     private Double rating;
 
     @Column(length = 255)

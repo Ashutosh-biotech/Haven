@@ -57,7 +57,7 @@ public class HotelNearbyLandmark {
 
     @NotNull
     @DecimalMin(value = "0.01", message = "Distance must be greater than 0")
-    @Column(name = "distance_km", nullable = false, precision = 6, scale = 2)
+    @Column(name = "distance_km", nullable = false)
     private BigDecimal distanceKm;
 
     // ── Audit Fields ────────────────────────────────────────────────

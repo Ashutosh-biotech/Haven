@@ -22,7 +22,7 @@ public class Pricing {
 
     @NotNull
     @DecimalMin(value = "0.01", message = "Base price must be greater than 0")
-    @Column(name = "base_price", nullable = false, precision = 10, scale = 2)
+    @Column(name = "base_price", nullable = false)
     private BigDecimal basePrice;
 
     @NotBlank
@@ -33,18 +33,18 @@ public class Pricing {
     @NotNull
     @DecimalMin("0.0")
     @DecimalMax("100.0")
-    @Column(name = "tax_percentage", nullable = false, precision = 5, scale = 2)
+    @Column(name = "tax_percentage", nullable = false)
     @Builder.Default
     private BigDecimal taxPercentage = BigDecimal.ZERO;
 
     @NotNull
     @DecimalMin("0.0")
     @DecimalMax("100.0")
-    @Column(name = "discount_percentage", nullable = false, precision = 5, scale = 2)
+    @Column(name = "discount_percentage", nullable = false)
     @Builder.Default
     private BigDecimal discountPercentage = BigDecimal.ZERO;
 
     @DecimalMin("0.0")
-    @Column(name = "per_person_price", precision = 10, scale = 2)
+    @Column(name = "per_person_price")
     private BigDecimal perPersonPrice;
 }

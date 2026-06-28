@@ -63,7 +63,7 @@ public class Room {
     private String description;
 
     @DecimalMin(value = "0.01", message = "Room size must be greater than 0")
-    @Column(name = "size_sqm", precision = 8, scale = 2)
+    @Column(name = "size_sqm")
     private BigDecimal sizeSqm;
 
     @Column(name = "bed_config", length = 100)
