@@ -19,10 +19,17 @@ spring:
                 allowCredentials: true
                 maxAge: 3600
           routes:
-            - id: hotel-service
+
+            - id: hotel-service-public
               uri: http://localhost:8081/
               predicates:
-                - Path=/api/hotels/**
+                - Path=/api/v1/public/hotel/**
+
+            - id: hotel-service-protected
+              uri: http://localhost:8081/
+              predicates:
+                - Path=/api/v1/protected/hotel/**
+
   security:
     oauth2:
       resourceserver:
