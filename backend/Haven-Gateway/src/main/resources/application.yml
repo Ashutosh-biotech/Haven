@@ -8,21 +8,26 @@ spring:
           globalcors:
             cors-configurations:
               '[/**]':
-                          allowedOrigins: "http://localhost:3000"
-                          allowedMethods:
-                            - GET
-                            - POST
-                            - PUT
-                            - DELETE
-                            - OPTIONS
-                          allowedHeaders: "*"
-                          allowCredentials: true
-                          maxAge: 3600
+                allowedOrigins: "http://localhost:3000"
+                allowedMethods:
+                  - GET
+                  - POST
+                  - PUT
+                  - DELETE
+                  - OPTIONS
+                allowedHeaders: "*"
+                allowCredentials: true
+                maxAge: 3600
           routes:
             - id: hotel-service
               uri: http://localhost:8081/
               predicates:
                 - Path=/api/hotels/**
-
+  security:
+    oauth2:
+      resourceserver:
+        jwt:
+          jwk-set-uri: http://localhost:9000/oauth2/jwks
+          issuer-uri: http://localhost:9000
 server:
   port: 8080
