@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, {useState} from "react";
 
 interface FloatingLabelInputProps
     extends React.InputHTMLAttributes<HTMLInputElement> {
