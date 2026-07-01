@@ -5,3 +5,5 @@ frontend/haven/.idea/modules.xml
 frontend/haven/.idea/vcs.xml
 frontend/haven/.idea/inspectionProfiles/Project_Default.xml
 backend/workspace/
+frontend/haven/.idea/workspace.xml
+backend/AuthService/src/main/resources/haven-auth.p12
