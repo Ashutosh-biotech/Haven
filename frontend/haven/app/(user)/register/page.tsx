@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent, useEffect } from "react";
+import React, {useState} from "react";
 import Image from "next/image";
 import Link from "next/link";
 import registerBg from "@/assets/images/register-bg.jpg";
@@ -15,32 +15,34 @@ import {
 } from "react-icons/hi";
 import { FaGoogle } from "react-icons/fa";
 
+interface StrengthType {
+    score: number,
+    label: string,
+    color: string
+}
+
+const checkStrength = (pass: string) => {
+    let score = 0;
+    if (pass.length > 8) score++;
+    if (/[A-Z]/.test(pass)) score++;
+    if (/[0-9]/.test(pass)) score++;
+    if (/[^A-Za-z0-9]/.test(pass)) score++;
+
+    if (score === 0) return { score: 0, label: "Weak", color: "bg-slate-200" };
+    if (score <= 2) return { score: 1, label: "Fair", color: "bg-amber-500" };
+    if (score === 3) return { score: 2, label: "Good", color: "bg-green-500" };
+    return { score: 3, label: "Strong", color: "bg-emerald-600" };
+};
+
 export default function RegisterPage(): React.ReactNode {
     const [showPassword, setShowPassword] = useState<boolean>(false);
     const [password, setPassword] = useState<string>("");
-    const [strength, setStrength] = useState({ score: 0, label: "Weak", color: "bg-slate-200" });
 
-    // Password Strength Logic
-    useEffect(() => {
-        const checkStrength = (pass: string) => {
-            let score = 0;
-            if (pass.length > 8) score++;
-            if (/[A-Z]/.test(pass)) score++;
-            if (/[0-9]/.test(pass)) score++;
-            if (/[^A-Za-z0-9]/.test(pass)) score++;
+    const strength:StrengthType = checkStrength(password);
 
-            if (score === 0) return { score: 0, label: "Weak", color: "bg-slate-200" };
-            if (score <= 2) return { score: 1, label: "Fair", color: "bg-amber-500" };
-            if (score === 3) return { score: 2, label: "Good", color: "bg-green-500" };
-            return { score: 3, label: "Strong", color: "bg-emerald-600" };
-        };
-
-        setStrength(checkStrength(password));
-    }, [password]);
-
-    const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
+    const handleSubmit = (e: React.SubmitEvent) => {
         e.preventDefault();
-        // Integration point for Haven Microservices Auth
+        window.alert("HI, form submit stopped")
     };
 
     return (
