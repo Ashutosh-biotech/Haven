@@ -3,3 +3,9 @@ spring:
     name: AuthService
 server:
   port: 8082
+app:
+  security:
+    keystore-location: ${KEY_LOCATION}
+    keystore-password: ${JWT_PASSWORD}
+    key-alias: ${KEY_ALIAS}
+    key-password: ${JWT_PASSWORD}
