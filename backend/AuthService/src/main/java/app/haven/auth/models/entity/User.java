@@ -12,6 +12,8 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Builder
@@ -126,7 +128,7 @@ class User{
     @Builder.Default
     private String timezone = "Asia";
 
-    @Column(name = "created_at", nullable = false)
+    @Column(name = "created_at", nullable = false, updatable = false)
     @CreatedDate
     private LocalDateTime createdAt;
 
@@ -137,8 +139,11 @@ class User{
     @Column(name = "created_by", length = 36)
     private String createdBy;
 
-    @Column(nullable = false)
+    @Version
+    private Long version;
+
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
-    public Long version = 0L;
+    private List<UserAuthProvider> authProviders = new ArrayList<>();
 
 }
