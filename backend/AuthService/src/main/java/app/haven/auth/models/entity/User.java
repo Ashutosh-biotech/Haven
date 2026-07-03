@@ -20,7 +20,13 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users")
+@Table(name = "users",
+indexes = {
+        @Index(name = "idx_users_email",  columnList = "email",     unique = true),
+        @Index(name = "idx_users_phone",  columnList = "phone"),
+        @Index(name = "idx_users_status", columnList = "status"),
+        @Index(name = "idx_users_active", columnList = "is_active")
+})
 class User{
 
     @Id
