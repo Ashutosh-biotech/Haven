@@ -1,7 +1,17 @@
 package app.haven.auth.models.entity;
 
 import app.haven.auth.models.enums.UserStatus;
-import jakarta.persistence.*;
+import jakarta.persistence.CascadeType;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
+import jakarta.persistence.FetchType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Index;
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -21,13 +31,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "users",
-indexes = {
-        @Index(name = "idx_users_email",  columnList = "email",     unique = true),
-        @Index(name = "idx_users_phone",  columnList = "phone"),
-        @Index(name = "idx_users_status", columnList = "status"),
-        @Index(name = "idx_users_active", columnList = "is_active")
-})
-class User{
+        indexes = {
+                @Index(name = "idx_users_email", columnList = "email", unique = true),
+                @Index(name = "idx_users_phone", columnList = "phone"),
+                @Index(name = "idx_users_status", columnList = "status"),
+                @Index(name = "idx_users_active", columnList = "is_active")
+        })
+class User {
 
     @Id
     @Column(name = "user_id")
@@ -62,7 +72,7 @@ class User{
     private String avatarUrl;
 
     @Size(max = 255)
-    @Column(length = 255,name = "password_hash")
+    @Column(length = 255, name = "password_hash")
     private String passwordHash;
 
     @Column(nullable = false, name = "is_email_verified")
