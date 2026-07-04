@@ -185,4 +185,20 @@ class User {
         this.failedLoginAttempts = 0;
         this.lockedUntil = null;
     }
+
+    public void anonymise() {
+        this.firstName = "Deleted";
+        this.lastName = "User";
+        this.displayName = "Deleted User";
+        this.email = "deleted_" + this.userId + "@haven.invalid";
+        this.phoneNo = null;
+        this.avatarUrl = null;
+        this.passwordHash = null;
+        this.lastLoginIp = null;
+        this.isAnonymised = true;
+        this.anonymisedAt = LocalDateTime.now();
+        this.isActive = false;
+        this.deactivatedAt = LocalDateTime.now();
+        this.deactivationReason = "GDPR_ERASURE";
+    }
 }
