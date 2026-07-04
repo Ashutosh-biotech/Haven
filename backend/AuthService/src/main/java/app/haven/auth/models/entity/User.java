@@ -14,6 +14,7 @@ import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
+import jakarta.validation.constraints.Min;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -93,10 +94,12 @@ class User {
     @Column(length = 255, name = "password_hash")
     private String passwordHash;
 
+    @NotNull
     @Column(nullable = false, name = "is_email_verified")
     @Builder.Default
     private Boolean isEmailVerified = false;
 
+    @NotNull
     @Column(name = "is_phone_verified", nullable = false)
     @Builder.Default
     private Boolean isPhoneVerified = false;
@@ -109,6 +112,7 @@ class User {
 
     @Enumerated(EnumType.STRING)
     @Builder.Default
+    @NotNull
     @Column(
             length = 20,
             nullable = false,
@@ -119,6 +123,7 @@ class User {
     )
     private UserStatus status = UserStatus.PENDING_VERIFICATION;
 
+    @NotNull
     @Column(name = "is_active", nullable = false)
     @Builder.Default
     private Boolean isActive = true;
@@ -129,8 +134,17 @@ class User {
     @Column(length = 500, name = "deactivation_reason")
     private String deactivationReason;
 
-    @Column(name = "failed_login_attempts", nullable = false)
     @Builder.Default
+    @NotNull
+    @Column(
+            name = "failed_login_attempts",
+            nullable = false,
+            check = @CheckConstraint(
+                    name = "chk_failed_attempts",
+                    constraint = "failed_login_attempts >= 0"
+            )
+    )
+    @Min(0)
     private Integer failedLoginAttempts = 0;
 
     @Column(name = "locked_until")
@@ -148,10 +162,12 @@ class User {
 
     @Column(name = "must_change_password", nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean mustChangePassword = false;
 
     @Column(name = "is_anonymised", nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean isAnonymised = false;
 
     @Column(name = "anonymised_at")
