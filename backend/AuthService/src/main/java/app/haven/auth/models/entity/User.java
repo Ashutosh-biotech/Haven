@@ -109,7 +109,14 @@ class User {
 
     @Enumerated(EnumType.STRING)
     @Builder.Default
-    @Column(length = 20, nullable = false)
+    @Column(
+            length = 20,
+            nullable = false,
+            check = @CheckConstraint(
+                    name = "chk_user_status",
+                    constraint = "status IN ('ACTIVE','INACTIVE','SUSPENDED','PENDING_VERIFICATION','BANNED')"
+            )
+    )
     private UserStatus status = UserStatus.PENDING_VERIFICATION;
 
     @Column(name = "is_active", nullable = false)
