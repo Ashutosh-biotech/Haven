@@ -10,14 +10,12 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 @Entity
 @Table(name = "permissions")
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -36,7 +34,6 @@ public class Permission {
     @Column(length = 255)
     private String description;
 
-    // Resource this permission applies to (HOTEL, ROOM, REVIEW, USER...)
     @Column(nullable = false, length = 50)
     private String resource;
 
