@@ -8,9 +8,9 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.FetchType;
 import jakarta.persistence.Id;
+import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -24,7 +24,14 @@ import java.time.LocalDateTime;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@Table(name = "user_auth_provider")
+@Table(
+        name = "user_auth_providers",
+        indexes = {
+                @Index(name = "idx_auth_user", columnList = "user_id"),
+                @Index(name = "idx_auth_provider_uq",
+                        columnList = "provider, provider_user_id", unique = true)
+        }
+)
 @Data
 @Builder
 @NoArgsConstructor
