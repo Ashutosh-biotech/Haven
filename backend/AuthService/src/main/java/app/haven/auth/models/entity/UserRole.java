@@ -13,6 +13,15 @@ import java.time.LocalDateTime;
         indexes = {
                 @Index(name = "idx_ur_user", columnList = "user_id"),
                 @Index(name = "idx_ur_role", columnList = "role_id")
+        },
+        uniqueConstraints = {
+                @UniqueConstraint(
+                        name = "uq_user_role",
+                        columnNames = {
+                                "user_id",
+                                "role_id"
+                        }
+                )
         }
 )
 @EntityListeners(AuditingEntityListener.class)
