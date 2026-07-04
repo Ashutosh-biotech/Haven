@@ -2,6 +2,7 @@ package app.haven.auth.models.entity;
 
 import app.haven.auth.models.enums.UserStatus;
 import jakarta.persistence.CascadeType;
+import jakarta.persistence.CheckConstraint;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -31,13 +32,29 @@ import java.util.List;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-@Table(name = "users",
+@Table(
+        name = "users",
         indexes = {
                 @Index(name = "idx_users_email", columnList = "email", unique = true),
                 @Index(name = "idx_users_phone", columnList = "phone"),
                 @Index(name = "idx_users_status", columnList = "status"),
                 @Index(name = "idx_users_active", columnList = "is_active")
-        })
+        },
+        check = {
+                @CheckConstraint(
+                        name = "chk_user_soft_delete",
+                        constraint = "is_active = TRUE OR deactivated_at IS NOT NULL"
+                ),
+                @CheckConstraint(
+                        name = "chk_user_email_verify",
+                        constraint = "is_email_verified = FALSE OR email_verified_at IS NOT NULL"
+                ),
+                @CheckConstraint(
+                        name = "chk_user_anonymised",
+                        constraint = "is_anonymised = FALSE OR anonymised_at IS NOT NULL"
+                )
+        }
+)
 class User {
 
     @Id
