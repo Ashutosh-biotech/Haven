@@ -62,8 +62,8 @@ class User{
     private String avatarUrl;
 
     @Size(max = 255)
-    @Column(length = 255)
-    private String password;
+    @Column(length = 255,name = "password_hash")
+    private String passwordHash;
 
     @Column(nullable = false, name = "is_email_verified")
     @Builder.Default
@@ -152,4 +152,27 @@ class User{
     @Builder.Default
     private List<UserAuthProvider> authProviders = new ArrayList<>();
 
+    public String getFullName() {
+        return firstName + " " + lastName;
+    }
+
+    public boolean isLocked() {
+        return lockedUntil != null && lockedUntil.isAfter(LocalDateTime.now());
+    }
+
+    public boolean hasPassword() {
+        return passwordHash != null && !passwordHash.isBlank();
+    }
+
+    public void incrementFailedAttempts(int maxAttempts, int lockMinutes) {
+        this.failedLoginAttempts++;
+        if (this.failedLoginAttempts >= maxAttempts) {
+            this.lockedUntil = LocalDateTime.now().plusMinutes(lockMinutes);
+        }
+    }
+
+    public void resetFailedAttempts() {
+        this.failedLoginAttempts = 0;
+        this.lockedUntil = null;
+    }
 }
