@@ -37,7 +37,7 @@ import java.util.List;
         name = "users",
         indexes = {
                 @Index(name = "idx_users_email", columnList = "email", unique = true),
-                @Index(name = "idx_users_phone", columnList = "phone"),
+                @Index(name = "idx_users_phone_no", columnList = "phone_no"),
                 @Index(name = "idx_users_status", columnList = "status"),
                 @Index(name = "idx_users_active", columnList = "is_active")
         },

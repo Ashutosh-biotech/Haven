@@ -43,7 +43,7 @@ public class UserAuthProvider {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
-    private User userId;
+    private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 30, nullable = false)
