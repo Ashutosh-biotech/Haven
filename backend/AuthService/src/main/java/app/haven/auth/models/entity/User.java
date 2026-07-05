@@ -37,7 +37,6 @@ import java.util.List;
         name = "users",
         indexes = {
                 @Index(name = "idx_users_email", columnList = "email", unique = true),
-                @Index(name = "idx_users_phone_no", columnList = "phone_no"),
                 @Index(name = "idx_users_status", columnList = "status"),
                 @Index(name = "idx_users_active", columnList = "is_active")
         },
@@ -113,14 +112,7 @@ class User {
     @Enumerated(EnumType.STRING)
     @Builder.Default
     @NotNull
-    @Column(
-            length = 20,
-            nullable = false,
-            check = @CheckConstraint(
-                    name = "chk_user_status",
-                    constraint = "status IN ('ACTIVE','INACTIVE','SUSPENDED','PENDING_VERIFICATION','BANNED')"
-            )
-    )
+    @Column(length = 20, nullable = false)
     private UserStatus status = UserStatus.PENDING_VERIFICATION;
 
     @NotNull

@@ -74,7 +74,6 @@ public class HotelStaff {
     @Column(name = "joined_at")
     private LocalDateTime joinedAt;
 
-    // Permission overrides for this specific staff+hotel combination
     @OneToMany(mappedBy = "hotelStaff", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
@@ -88,9 +87,6 @@ public class HotelStaff {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    // Resolves effective permissions:
-    // 1. Start with role defaults
-    // 2. Apply overrides (granted=true adds, granted=false removes)
     public boolean hasPermission(String permissionCode) {
         return permissionOverrides.stream()
                 .filter(p -> p.getPermission().getCode().equals(permissionCode))
