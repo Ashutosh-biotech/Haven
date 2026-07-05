@@ -25,9 +25,8 @@ import java.time.LocalDateTime;
 @Entity
 @EntityListeners(AuditingEntityListener.class)
 @Table(
-        name = "user_auth_providers",
         indexes = {
-                @Index(name = "idx_auth_user", columnList = "user_id"),
+                @Index(name = "idx_auth_user", columnList = "user"),
                 @Index(name = "idx_auth_provider_uq",
                         columnList = "provider, provider_user_id", unique = true)
         }

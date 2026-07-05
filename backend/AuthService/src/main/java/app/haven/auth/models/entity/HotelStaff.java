@@ -29,9 +29,8 @@ import java.util.List;
 
 @Entity
 @Table(
-        name = "hotel_staff",
         indexes = {
-                @Index(name = "idx_hs_user", columnList = "user_id"),
+                @Index(name = "idx_hs_user", columnList = "user"),
                 @Index(name = "idx_hs_hotel", columnList = "hotel_id")
         }
 )
@@ -47,7 +46,7 @@ public class HotelStaff {
     private String hotelStaffId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(nullable = false)
     private User user;
 
     @Column(nullable = false, length = 36)

@@ -23,14 +23,14 @@ import java.time.LocalDateTime;
 @Entity
 @Table(
         indexes = {
-                @Index(name = "idx_hsp_staff", columnList = "hotel_staff_id")
+                @Index(name = "idx_hsp_staff", columnList = "hotel_staff")
         },
         uniqueConstraints = {
                 @UniqueConstraint(
                         name = "uq_staff_permission",
                         columnNames = {
-                                "hotel_staff_id",
-                                "permission_id"
+                                "hotel_staff",
+                                "permission"
                         }
                 )
         }
@@ -47,20 +47,20 @@ public class HotelStaffPermission {
     private String hotelStaffPermissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "hotel_staff_id", nullable = false)
+    @JoinColumn(nullable = false)
     private HotelStaff hotelStaff;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "permission_id", nullable = false)
+    @JoinColumn(nullable = false)
     private Permission permission;
 
-    @Column(name = "is_granted", nullable = false)
+    @Column(nullable = false)
     private Boolean isGranted;
 
-    @Column(name = "granted_by", length = 36)
+    @Column(length = 36)
     private String grantedBy;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 }
