@@ -1,8 +1,17 @@
 spring:
   application:
     name: AuthService
+  datasource:
+    url: ${POSTGRESQL_URL}
+    username: ${POSTGRESQL_USERNAME}
+    password: ${POSTGRESQL_PASSWORD}
+  jpa:
+    hibernate:
+      ddl-auto:update
+
 server:
   port: 8082
+
 app:
   security:
     keystore-location: ${KEY_LOCATION}
