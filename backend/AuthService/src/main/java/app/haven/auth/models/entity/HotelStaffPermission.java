@@ -45,7 +45,7 @@ import java.time.LocalDateTime;
 public class HotelStaffPermission {
 
     @Id
-    private String id;
+    private String hotelStaffPermissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_staff_id", nullable = false)

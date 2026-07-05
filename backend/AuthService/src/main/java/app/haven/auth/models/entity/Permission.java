@@ -22,7 +22,7 @@ import lombok.NoArgsConstructor;
 public class Permission {
 
     @Id
-    private String id;
+    private String permissionId;
 
     @Column(nullable = false, unique = true, length = 100)
     private String code;

@@ -44,7 +44,7 @@ import java.util.List;
 public class HotelStaff {
 
     @Id
-    private String id;
+    private String hotelStaffId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
