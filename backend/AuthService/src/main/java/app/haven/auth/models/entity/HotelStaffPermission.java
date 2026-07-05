@@ -22,7 +22,6 @@ import java.time.LocalDateTime;
 
 @Entity
 @Table(
-        name = "hotel_staff_permissions",
         indexes = {
                 @Index(name = "idx_hsp_staff", columnList = "hotel_staff_id")
         },

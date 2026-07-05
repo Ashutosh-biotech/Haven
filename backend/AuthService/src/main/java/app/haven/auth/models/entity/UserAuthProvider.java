@@ -42,34 +42,33 @@ public class UserAuthProvider {
     private String userAuthProviderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", nullable = false)
+    @JoinColumn(nullable = false)
     private User user;
 
     @Enumerated(EnumType.STRING)
     @Column(length = 30, nullable = false)
     private AuthProvider provider;
 
-    @Column(name = "provider_user_id", nullable = false, length = 255)
+    @Column(nullable = false, length = 255)
     private String providerUserId;
 
-    @Column(name = "provider_email", length = 255)
+    @Column(length = 255)
     private String providerEmail;
 
-    @Column(name = "access_token", columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String accessToken;
 
-    @Column(name = "refresh_token", columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String refreshToken;
 
-    @Column(name = "token_expires_at")
     private LocalDateTime tokenExpiresAt;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
 }

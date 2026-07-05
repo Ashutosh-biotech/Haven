@@ -50,28 +50,25 @@ public class HotelStaff {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    // External hotel-service ID — no FK constraint
-    @Column(name = "hotel_id", nullable = false, length = 36)
+    @Column(nullable = false, length = 36)
     private String hotelId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     private HotelStaffRole role;
 
-    @Column(name = "job_title", length = 100)
+    @Column(length = 100)
     private String jobTitle;
 
-    @Column(name = "is_active", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
     private Boolean isActive = true;
 
-    @Column(name = "invited_by", length = 36)
-    private String invitedBy;  // user_id of the inviting admin
+    @Column(length = 36)
+    private String invitedBy;
 
-    @Column(name = "invited_at")
     private LocalDateTime invitedAt;
 
-    @Column(name = "joined_at")
     private LocalDateTime joinedAt;
 
     @OneToMany(mappedBy = "hotelStaff", cascade = CascadeType.ALL,
@@ -80,11 +77,11 @@ public class HotelStaff {
     private List<HotelStaffPermission> permissionOverrides = new ArrayList<>();
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 
     public boolean hasPermission(String permissionCode) {
