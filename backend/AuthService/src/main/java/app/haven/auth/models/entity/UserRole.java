@@ -33,7 +33,7 @@ import java.time.LocalDateTime;
 public class UserRole {
 
     @Id
-    private String id;
+    private String userRoleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
