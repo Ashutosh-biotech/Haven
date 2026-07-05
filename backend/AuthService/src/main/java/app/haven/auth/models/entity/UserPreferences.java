@@ -35,7 +35,7 @@ import java.time.LocalDateTime;
 public class UserPreferences {
 
     @Id
-    private String id;
+    private String userPreferencesId;
 
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

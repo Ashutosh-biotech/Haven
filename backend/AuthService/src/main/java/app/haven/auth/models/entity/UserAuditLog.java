@@ -31,7 +31,7 @@ import java.time.LocalDateTime;
 public class UserAuditLog {
 
     @Id
-    private String id;
+    private String UserAuditLogId;
 
     @Column(name = "user_id", nullable = false, length = 36)
     private String userId;

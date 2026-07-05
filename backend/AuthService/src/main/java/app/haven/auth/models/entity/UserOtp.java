@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
 public class UserOtp {
 
     @Id
-    private String id;
+    private String userOtpId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)
