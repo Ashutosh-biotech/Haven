@@ -197,8 +197,8 @@ class User {
     private String createdBy;
 
     @Version
-    private Long version;
-
+    @Builder.Default
+    private Long version = 0L;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
