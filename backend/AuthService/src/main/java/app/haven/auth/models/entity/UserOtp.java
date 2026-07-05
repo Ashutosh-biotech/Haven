@@ -81,7 +81,7 @@ public class UserOtp {
     public boolean isExhausted() {
         return attempts >= maxAttempts;
     }
-    
+
     public boolean isUsable() {
         return !isUsed && !isExpired() && !isExhausted();
     }
