@@ -36,7 +36,7 @@ import java.time.LocalDateTime;
 public class RefreshToken {
 
     @Id
-    private String id;
+    private String refreshTokenId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

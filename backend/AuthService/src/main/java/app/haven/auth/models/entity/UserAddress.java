@@ -24,7 +24,7 @@ public class UserAddress {
 
     @Id
     @Column(name = "id", length = 36, nullable = false)
-    private String id;
+    private String userAddressId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_user_addresses_users"))
