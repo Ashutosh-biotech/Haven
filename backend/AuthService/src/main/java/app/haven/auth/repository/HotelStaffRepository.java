@@ -4,6 +4,8 @@ import app.haven.auth.models.entity.HotelStaff;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
+import java.util.UUID;
+
 @Repository
-public interface HotelStaffRepository extends JpaRepository<HotelStaff, String> {
+public interface HotelStaffRepository extends JpaRepository<HotelStaff, UUID> {
 }

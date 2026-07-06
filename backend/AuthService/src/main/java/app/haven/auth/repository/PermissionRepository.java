@@ -2,6 +2,10 @@ package app.haven.auth.repository;
 
 import app.haven.auth.models.entity.Permission;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface PermissionRepository extends JpaRepository<Permission, String> {
+import java.util.UUID;
+
+@Repository
+public interface PermissionRepository extends JpaRepository<Permission, UUID> {
 }
