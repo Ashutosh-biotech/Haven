@@ -44,6 +44,7 @@ public class HotelStaff {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
+    @NotBlank
     private UUID hotelStaffId;
 
     @ManyToOne(fetch = FetchType.LAZY)

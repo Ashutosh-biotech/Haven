@@ -14,9 +14,8 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -36,8 +35,7 @@ import java.util.UUID;
         }
 )
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -46,6 +44,7 @@ public class HotelRole {
     @Id
     @UuidGenerator
     @Column(nullable = false, updatable = false)
+    @NotBlank
     private UUID id;
 
     @Column(nullable = false)
