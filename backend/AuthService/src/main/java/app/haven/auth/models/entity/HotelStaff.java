@@ -15,9 +15,7 @@ import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -76,7 +74,6 @@ public class HotelStaff {
     @Column(name = "joined_at")
     private LocalDateTime joinedAt;
 
-    // Individual permission overrides on top of the role's defaults
     @OneToMany(mappedBy = "hotelStaff", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
@@ -90,17 +87,11 @@ public class HotelStaff {
     @Column(name = "updated_at", nullable = false)
     private LocalDateTime updatedAt;
 
-    // Effective permission check:
-    // 1. Get permissions from hotelRole.getPermissions()
-    // 2. Apply overrides from permissionOverrides
-    //    (is_granted=true adds, is_granted=false removes)
     public boolean hasPermission(String permissionCode) {
-        // First check explicit overrides (highest priority)
         return permissionOverrides.stream()
                 .filter(o -> o.getPermission().getCode().equals(permissionCode))
                 .findFirst()
                 .map(HotelStaffPermission::getIsGranted)
-                // If no override, fall back to the role's default permissions
                 .orElseGet(() -> hotelRole.getPermissions().stream()
                         .anyMatch(p -> p.getCode().equals(permissionCode))
                 );

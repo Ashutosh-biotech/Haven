@@ -204,6 +204,10 @@ public class User {
     @Builder.Default
     private List<HotelStaff> hotelStaffAssignments = new ArrayList<>();
 
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @Builder.Default
+    private List<UserPlatformRole> userPlatformRoles = new ArrayList<>();
+
     public String getFullName() {
         return firstName + " " + lastName;
     }
