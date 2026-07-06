@@ -14,10 +14,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(
@@ -36,8 +38,9 @@ import java.time.LocalDateTime;
 public class RefreshToken {
 
     @Id
-    @Column(updatable = false)
-    private String refreshTokenId;
+    @Column(updatable = false, nullable = false)
+    @UuidGenerator
+    private UUID refreshTokenId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", nullable = false)

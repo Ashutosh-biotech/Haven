@@ -15,18 +15,21 @@ import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.Version;
 import jakarta.validation.constraints.Min;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Entity
 @Builder
@@ -58,15 +61,17 @@ import java.util.List;
 public class User {
 
     @Id
-    @Column(updatable = false)
-    private String userId;
+    @Column(updatable = false, nullable = false, unique = true)
+    @UuidGenerator
+    @NotBlank
+    private UUID userId;
 
-    @NotNull
+    @NotBlank
     @Size(max = 80)
     @Column(length = 80, nullable = false)
     private String firstName;
 
-    @NotNull
+    @NotBlank
     @Size(max = 80)
     @Column(length = 80, nullable = false)
     private String lastName;
@@ -75,12 +80,11 @@ public class User {
     @Column(length = 100)
     private String displayName;
 
-    @NotNull
-    @Size(max = 255)
-    @Column(length = 255, nullable = false, unique = true)
+    @NotBlank
+    @Column(nullable = false, unique = true)
     private String email;
 
-    @NotNull
+    @NotBlank
     @Size(max = 20)
     @Column(length = 20, unique = true, nullable = false)
     private String phoneNo;
@@ -89,8 +93,6 @@ public class User {
     @Column(length = 500)
     private String avatarUrl;
 
-    @Size(max = 255)
-    @Column(length = 255)
     private String passwordHash;
 
     @NotNull
@@ -184,8 +186,7 @@ public class User {
     @Builder.Default
     private Long version = 0L;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private UserPreferences preferences;
 
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
