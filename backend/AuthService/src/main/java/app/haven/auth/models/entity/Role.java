@@ -38,7 +38,7 @@ public class Role {
     @Column(length = 255)
     private String description;
 
-    @Column(name = "is_system_role", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
     private Boolean isSystemRole = false;
 
@@ -52,6 +52,6 @@ public class Role {
     private Set<Permission> permissions = new HashSet<>();
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 }

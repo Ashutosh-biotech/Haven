@@ -88,6 +88,6 @@ public class HotelStaff {
                 .filter(p -> p.getPermission().getCode().equals(permissionCode))
                 .findFirst()
                 .map(HotelStaffPermission::getIsGranted)
-                .orElse(false); // actual default lookup is in the service layer
+                .orElse(false);
     }
 }

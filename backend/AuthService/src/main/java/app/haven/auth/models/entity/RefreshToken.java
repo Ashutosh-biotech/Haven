@@ -49,7 +49,7 @@ public class RefreshToken {
     private String deviceName;
 
     @Column(name = "device_type", length = 20)
-    private String deviceType;   // WEB, IOS, ANDROID
+    private String deviceType;
 
     @Column(name = "ip_address", length = 45)
     private String ipAddress;
