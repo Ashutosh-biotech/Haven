@@ -66,12 +66,6 @@ public class HotelStaff {
     @Builder.Default
     private Boolean isActive = true;
 
-    @Column(name = "invited_by", length = 36)
-    private String invitedBy;
-
-    @Column(name = "invited_at")
-    private LocalDateTime invitedAt;
-
     @Column(name = "joined_at")
     private LocalDateTime joinedAt;
 
