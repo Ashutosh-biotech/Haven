@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -26,8 +27,9 @@ import java.util.UUID;
 public class UserPlatformRole {
 
     @Id
-    @Column(nullable = false, updatable = false)
+    @Column(updatable = false, nullable = false)
     @UuidGenerator
+    @NotBlank
     private UUID userPlatformRoleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
