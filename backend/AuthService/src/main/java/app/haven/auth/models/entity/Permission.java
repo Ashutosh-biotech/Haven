@@ -30,6 +30,7 @@ public class Permission {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
+    @NotBlank
     private UUID permissionId;
 
     @Column(nullable = false, unique = true, length = 100)

@@ -61,7 +61,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    @Column(updatable = false, nullable = false, unique = true)
+    @Column(updatable = false, nullable = false)
     @UuidGenerator
     @NotBlank
     private UUID userId;
