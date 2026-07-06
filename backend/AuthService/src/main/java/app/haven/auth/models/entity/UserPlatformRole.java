@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -37,17 +38,17 @@ public class UserPlatformRole {
     @JoinColumn(name = "platform_role_id", nullable = false)
     private PlatformRole platformRole;
 
-    @Column(name = "assigned_by", length = 36)
+    @Column(length = 36)
     private String assignedBy;
 
-    @Column(name = "assigned_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime assignedAt;
 
-    @Column(name = "expires_at")
     private LocalDateTime expiresAt;
 
-    @Column(name = "is_active", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean isActive = true;
 
     public boolean isEffective() {
