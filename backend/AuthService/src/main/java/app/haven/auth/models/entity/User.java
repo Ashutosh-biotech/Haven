@@ -55,10 +55,11 @@ import java.util.List;
                 )
         }
 )
-class User {
+public class User {
 
     @Id
-    private Long userId;
+    @Column(updatable = false)
+    private String userId;
 
     @NotNull
     @Size(max = 80)
