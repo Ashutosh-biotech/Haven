@@ -6,14 +6,17 @@ import jakarta.persistence.EntityListeners;
 import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(
@@ -31,7 +34,10 @@ import java.time.LocalDateTime;
 public class UserAuditLog {
 
     @Id
-    private String UserAuditLogId;
+    @Column(updatable = false, nullable = false)
+    @UuidGenerator
+    @NotBlank
+    private UUID UserAuditLogId;
 
     @Column(name = "user_id", nullable = false, length = 36)
     private String userId;

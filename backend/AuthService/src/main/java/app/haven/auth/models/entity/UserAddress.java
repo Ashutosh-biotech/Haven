@@ -1,12 +1,15 @@
 package app.haven.auth.models.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import lombok.*;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(
@@ -23,8 +26,10 @@ import java.time.LocalDateTime;
 public class UserAddress {
 
     @Id
-    @Column(length = 36, nullable = false, updatable = false)
-    private String userAddressId;
+    @Column(updatable = false, nullable = false)
+    @UuidGenerator
+    @NotBlank
+    private UUID userAddressId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "user_id", nullable = false, foreignKey = @ForeignKey(name = "fk_user_addresses_users"))
