@@ -15,10 +15,12 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.util.UUID;
 
 @Entity
 @Table(
@@ -44,8 +46,9 @@ import java.time.LocalDateTime;
 public class HotelStaffPermission {
 
     @Id
-    @Column(updatable = false)
-    private String hotelStaffPermissionId;
+    @Column(updatable = false, nullable = false)
+    @UuidGenerator
+    private UUID hotelStaffPermissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(nullable = false)
