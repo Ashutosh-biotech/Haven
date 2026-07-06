@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -45,34 +46,42 @@ public class UserPreferences {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "email_notifications", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean emailNotifications = true;
 
-    @Column(name = "sms_notifications", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean smsNotifications = true;
 
-    @Column(name = "push_notifications", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean pushNotifications = true;
 
-    @Column(name = "marketing_emails", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean marketingEmails = false;
 
-    @Column(name = "newsletter", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean newsletter = false;
 
-    @Column(name = "show_profile_public", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean showProfilePublic = false;
 
-    @Column(name = "preferred_room_type", length = 50)
+    @Column(length = 50)
+    @NotNull
     private String preferredRoomType;
 
     @LastModifiedDate
-    @Column(name = "updated_at", nullable = false)
+    @NotNull
+    @Column(nullable = false)
     private LocalDateTime updatedAt;
 }
