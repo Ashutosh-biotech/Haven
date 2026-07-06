@@ -202,11 +202,6 @@ public class User {
     @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
             fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
-    private List<UserRole> roles = new ArrayList<>();
-
-    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
-            fetch = FetchType.LAZY, orphanRemoval = true)
-    @Builder.Default
     private List<HotelStaff> hotelStaffAssignments = new ArrayList<>();
 
     public String getFullName() {
