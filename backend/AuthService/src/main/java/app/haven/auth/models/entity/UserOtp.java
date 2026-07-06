@@ -1,6 +1,7 @@
 package app.haven.auth.models.entity;
 
 import app.haven.auth.models.enums.OtpPurpose;
+import jakarta.persistence.CheckConstraint;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EntityListeners;
@@ -42,36 +43,45 @@ public class UserOtp {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "otp_hash", nullable = false, length = 255)
+    @Column(nullable = false, length = 255)
     private String otpHash;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
     private OtpPurpose purpose;
 
-    @Column(name = "delivery_target", nullable = false, length = 255)
+    @Column(
+            check = {
+                    @CheckConstraint(
+                            name = "chk_otp_hotel_invite",
+                            constraint = "purpose != 'HOTEL_INVITE' OR context_id IS NOT NULL"
+                    )
+            }
+    )
+    private String contextId;
+
+    @Column(nullable = false, length = 255)
     private String deliveryTarget;
 
     @Column(nullable = false)
     @Builder.Default
     private Integer attempts = 0;
 
-    @Column(name = "max_attempts", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
     private Integer maxAttempts = 3;
 
-    @Column(name = "is_used", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
     private Boolean isUsed = false;
 
-    @Column(name = "expires_at", nullable = false)
+    @Column(nullable = false)
     private LocalDateTime expiresAt;
 
-    @Column(name = "used_at")
     private LocalDateTime usedAt;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     public boolean isExpired() {
