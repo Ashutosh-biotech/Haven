@@ -33,7 +33,7 @@ public class UserPlatformRole {
     private UUID userPlatformRoleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     @ManyToOne(fetch = FetchType.LAZY)

@@ -29,7 +29,7 @@ import java.util.UUID;
 @EntityListeners(AuditingEntityListener.class)
 @Table(
         indexes = {
-                @Index(name = "idx_auth_user", columnList = "user"),
+                @Index(name = "idx_auth_user", columnList = "user_id"),
                 @Index(name = "idx_auth_provider_uq",
                         columnList = "provider, provider_user_id", unique = true)
         }
@@ -47,7 +47,7 @@ public class UserAuthProvider {
     private UUID userAuthProviderId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     @Enumerated(EnumType.STRING)

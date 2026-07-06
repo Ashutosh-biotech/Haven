@@ -7,6 +7,7 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Index;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -39,11 +40,12 @@ public class UserAuditLog {
     @NotBlank
     private UUID UserAuditLogId;
 
-    @Column(name = "user_id", nullable = false, length = 36)
+    @Column(nullable = false, length = 36)
+    @NotBlank
     private String userId;
 
     // Actor (who did it) — NULL means self-action
-    @Column(name = "actor_id", length = 36)
+    @Column(length = 36)
     private String actorId;
 
     @Column(nullable = false, length = 80)
@@ -52,22 +54,23 @@ public class UserAuditLog {
     @Column(length = 50)
     private String resource;
 
-    @Column(name = "resource_id", length = 36)
+    @Column(length = 36)
     private String resourceId;
 
-    @Column(name = "old_value", columnDefinition = "JSONB")
+    @Column(columnDefinition = "JSONB")
     private String oldValue;
 
-    @Column(name = "new_value", columnDefinition = "JSONB")
+    @Column(columnDefinition = "JSONB")
     private String newValue;
 
-    @Column(name = "ip_address", length = 45)
+    @Column(length = 45)
     private String ipAddress;
 
-    @Column(name = "user_agent", columnDefinition = "TEXT")
+    @Column(columnDefinition = "TEXT")
     private String userAgent;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
+    @NotNull
     private LocalDateTime createdAt;
 }
