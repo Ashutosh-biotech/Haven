@@ -2,6 +2,10 @@ package app.haven.auth.repository;
 
 import app.haven.auth.models.entity.UserAddress;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface UserAddressRepository extends JpaRepository<UserAddress, String> {
+import java.util.UUID;
+
+@Repository
+public interface UserAddressRepository extends JpaRepository<UserAddress, UUID> {
 }

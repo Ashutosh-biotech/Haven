@@ -2,6 +2,10 @@ package app.haven.auth.repository;
 
 import app.haven.auth.models.entity.RefreshToken;
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.stereotype.Repository;
 
-public interface RefreshTokenRepository extends JpaRepository<RefreshToken, String> {
+import java.util.UUID;
+
+@Repository
+public interface RefreshTokenRepository extends JpaRepository<RefreshToken, UUID> {
 }
