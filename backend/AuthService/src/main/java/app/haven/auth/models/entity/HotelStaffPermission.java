@@ -52,7 +52,7 @@ public class HotelStaffPermission {
     private UUID hotelStaffPermissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "hotel_staff")
     private HotelStaff hotelStaff;
 
     @ManyToOne(fetch = FetchType.LAZY)

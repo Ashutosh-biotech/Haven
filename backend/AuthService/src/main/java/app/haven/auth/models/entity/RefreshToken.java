@@ -10,6 +10,7 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -46,36 +47,36 @@ public class RefreshToken {
     @JoinColumn(name = "user_id", nullable = false)
     private User user;
 
-    @Column(name = "token_hash", nullable = false, unique = true, length = 255)
+    @Column(nullable = false, unique = true, length = 255)
     private String tokenHash;
 
-    @Column(name = "device_name", length = 100)
+    @Column(length = 100)
     private String deviceName;
 
-    @Column(name = "device_type", length = 20)
+    @Column(length = 20)
     private String deviceType;
 
-    @Column(name = "ip_address", length = 45)
+    @Column(length = 45)
     private String ipAddress;
 
-    @Column(name = "is_revoked", nullable = false)
+    @Column(nullable = false)
     @Builder.Default
     private Boolean isRevoked = false;
 
-    @Column(name = "revoked_at")
     private LocalDateTime revokedAt;
 
-    @Column(name = "revoke_reason", length = 100)
+    @Column(length = 100)
     private String revokeReason;
 
-    @Column(name = "expires_at", nullable = false)
+    @Column(nullable = false)
+    @NotNull
     private LocalDateTime expiresAt;
 
-    @Column(name = "last_used_at")
     private LocalDateTime lastUsedAt;
 
     @CreatedDate
-    @Column(name = "created_at", nullable = false, updatable = false)
+    @Column(nullable = false, updatable = false)
+    @NotNull
     private LocalDateTime createdAt;
 
     public boolean isExpired() {

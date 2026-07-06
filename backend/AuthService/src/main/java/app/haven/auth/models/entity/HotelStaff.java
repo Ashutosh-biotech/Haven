@@ -48,7 +48,7 @@ public class HotelStaff {
     private UUID hotelStaffId;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(nullable = false)
+    @JoinColumn(nullable = false, name = "user_id")
     private User user;
 
     @Column(nullable = false, length = 36)
