@@ -44,6 +44,7 @@ import java.time.LocalDateTime;
 public class HotelStaffPermission {
 
     @Id
+    @Column(updatable = false)
     private String hotelStaffPermissionId;
 
     @ManyToOne(fetch = FetchType.LAZY)

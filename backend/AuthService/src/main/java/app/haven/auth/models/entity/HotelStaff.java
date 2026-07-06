@@ -43,6 +43,7 @@ import java.util.List;
 public class HotelStaff {
 
     @Id
+    @Column(updatable = false)
     private String hotelStaffId;
 
     @ManyToOne(fetch = FetchType.LAZY)

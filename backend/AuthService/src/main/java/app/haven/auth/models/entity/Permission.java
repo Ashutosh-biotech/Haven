@@ -22,6 +22,7 @@ import lombok.NoArgsConstructor;
 public class Permission {
 
     @Id
+    @Column(updatable = false)
     private String permissionId;
 
     @Column(nullable = false, unique = true, length = 100)
