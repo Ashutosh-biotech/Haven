@@ -14,11 +14,12 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
-import lombok.Getter;
+import lombok.Data;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 import org.hibernate.annotations.UuidGenerator;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -37,8 +38,7 @@ import java.util.UUID;
         }
 )
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -54,10 +54,12 @@ public class HotelStaff {
     private User user;
 
     @Column(nullable = false, length = 36)
+    @NotBlank
     private String hotelId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false, length = 30)
+    @NotBlank
     private HotelStaffRole role;
 
     @Column(length = 100)
@@ -65,6 +67,7 @@ public class HotelStaff {
 
     @Column(nullable = false)
     @Builder.Default
+    @NotNull
     private Boolean isActive = true;
 
     @Column(length = 36)
@@ -81,10 +84,12 @@ public class HotelStaff {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
+    @NotBlank
     private LocalDateTime createdAt;
 
     @LastModifiedDate
     @Column(nullable = false)
+    @NotBlank
     private LocalDateTime updatedAt;
 
     public boolean hasPermission(String permissionCode) {

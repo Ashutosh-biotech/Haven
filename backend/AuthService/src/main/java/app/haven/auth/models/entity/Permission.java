@@ -8,6 +8,8 @@ import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -30,15 +32,20 @@ public class Permission {
     private UUID permissionId;
 
     @Column(nullable = false, unique = true, length = 100)
+    @Size(max = 100)
+    @NotBlank
     private String code;
 
     @Column(nullable = false, length = 100)
+    @Size(max = 100)
+    @NotBlank
     private String name;
 
-    @Column(length = 255)
     private String description;
 
     @Column(nullable = false, length = 50)
+    @Size(max = 50)
+    @NotBlank
     private String resource;
 
     @Enumerated(EnumType.STRING)

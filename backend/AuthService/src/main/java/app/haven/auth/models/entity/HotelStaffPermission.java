@@ -10,8 +10,10 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import jakarta.persistence.UniqueConstraint;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
+import lombok.Data;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -38,8 +40,7 @@ import java.util.UUID;
         }
 )
 @EntityListeners(AuditingEntityListener.class)
-@Getter
-@Setter
+@Data
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
@@ -59,6 +60,7 @@ public class HotelStaffPermission {
     private Permission permission;
 
     @Column(nullable = false)
+    @NotNull
     private Boolean isGranted;
 
     @Column(length = 36)
@@ -66,5 +68,6 @@ public class HotelStaffPermission {
 
     @CreatedDate
     @Column(nullable = false, updatable = false)
+    @NotNull
     private LocalDateTime createdAt;
 }
