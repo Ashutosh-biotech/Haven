@@ -33,12 +33,12 @@ spring:
             - id: auth-service-public
               uri: http://localhost:8082/
               predicates:
-                - path=/api/v1/public/auth/**
+                - Path=/api/v1/public/auth/**
 
             - id: auth-service-protected
               uri: http://localhost:8082/
               predicates:
-                - path=/api/v1/protected/auth/**
+                - Path=/api/v1/protected/auth/**
 
   security:
     oauth2:
