@@ -18,9 +18,8 @@ spring:
 server:
   port: 8082
 
-app:
-  security:
-    keystore-location: ${KEY_LOCATION}
-    keystore-password: ${JWT_PASSWORD}
-    key-alias: ${KEY_ALIAS}
-    key-password: ${JWT_PASSWORD}
+haven:
+  jwt:
+    secret: ${JWT_SECRET}
+    access-token-expiry-ms: 900000
+    refresh-token-expiry-ms: 2592000000
