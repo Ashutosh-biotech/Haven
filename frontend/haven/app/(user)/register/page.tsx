@@ -19,7 +19,6 @@ import {
     HiArrowLeft
 } from "react-icons/hi";
 import { FaGoogle } from "react-icons/fa";
-import { toast, ToastContainer } from "react-toastify";
 
 interface StrengthType {
     score: number;
@@ -77,30 +76,18 @@ export default function RegisterPage(): React.ReactNode {
 
     const nextStep = () => {
         if (step === 1) {
-            if (!formData.firstName){
-                toast.error("Please enter your first name.");
-                return;
-            }
-            if (!formData.lastName){
-                toast.error("Please enter your last name.");
-                return;
-            }
-            if (!formData.email){
-                toast.error("Please enter your email address.");
-                return;
-            }
-            if (!formData.phone){
-                toast.error("Please enter your phone number.");
+            if (!formData.firstName || !formData.lastName || !formData.email || !formData.phone) {
+                alert("Please fill out all required fields.");
                 return;
             }
         }
         if (step === 2) {
             if (!formData.password || !formData.repeatPassword) {
-                toast.error("Please complete password fields.");
+                alert("Please complete password fields.");
                 return;
             }
             if (formData.password !== formData.repeatPassword) {
-                toast.error("Passwords do not match!");
+                alert("Passwords do not match!");
                 return;
             }
         }
@@ -111,38 +98,15 @@ export default function RegisterPage(): React.ReactNode {
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (step === 3) {
-            if (!formData.address1){
-                toast.error("Please enter your address line 1.");
-                return;
-            }
-            if (!formData.city){
-                toast.error("Please enter your city.");
-                return;
-            }
-            if (!formData.state){
-                toast.error("Please enter your state.");
-                return;
-            }
-            if (!formData.country){
-                toast.error("Please enter your country.");
-                return;
-            }
-            if (!formData.postcode){
-                toast.error("Please enter your postcode.");
-                return;
-            }
-            if (!formData.agreeTerms) {
-                toast.error("You must agree to the Terms & Conditions.");
-                return;
-            }
+        if (!formData.agreeTerms) {
+            alert("You must agree to the Terms & Conditions.");
+            return;
         }
-        toast.success("Account creation requested! Payload: " + JSON.stringify(formData, null, 2));
+        window.alert("Account creation requested! Payload: " + JSON.stringify(formData, null, 2));
     };
 
     return (
-        <main className="relative min-h-screen w-full flex items-center justify-center py-20 overflow-hidden">
-            <ToastContainer />
+        <main className="relative min-h-screen w-full flex items-center justify-center py-16 overflow-hidden">
             <Image
                 src={registerBg}
                 alt="Luxury Hotel View"
@@ -195,26 +159,24 @@ export default function RegisterPage(): React.ReactNode {
                                     <div className="relative group">
                                         <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                         <input
-                                            required={true}
+                                            required
                                             type="text"
                                             name="firstName"
                                             value={formData.firstName}
                                             onChange={handleInputChange}
-                                            placeholder="First Name"
-                                            maxLength={80}
+                                            placeholder="First Name *"
                                             className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                         />
                                     </div>
                                     <div className="relative group">
                                         <HiOutlineUser className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                         <input
-                                            required={true}
+                                            required
                                             type="text"
                                             name="lastName"
                                             value={formData.lastName}
                                             onChange={handleInputChange}
-                                            placeholder="Last Name"
-                                            maxLength={80}
+                                            placeholder="Last Name *"
                                             className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                         />
                                     </div>
@@ -223,13 +185,12 @@ export default function RegisterPage(): React.ReactNode {
                                 <div className="relative group">
                                     <HiOutlineMail className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                     <input
-                                        required={true}
+                                        required
                                         type="email"
                                         name="email"
                                         value={formData.email}
                                         onChange={handleInputChange}
-                                        placeholder="Email Address"
-                                        maxLength={255}
+                                        placeholder="Email Address *"
                                         className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                 </div>
@@ -237,13 +198,12 @@ export default function RegisterPage(): React.ReactNode {
                                 <div className="relative group">
                                     <HiOutlinePhone className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                     <input
-                                        required={true}
+                                        required
                                         type="tel"
                                         name="phone"
                                         value={formData.phone}
                                         onChange={handleInputChange}
-                                        placeholder="Phone Number"
-                                        maxLength={20}
+                                        placeholder="Phone Number *"
                                         className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                 </div>
@@ -257,13 +217,12 @@ export default function RegisterPage(): React.ReactNode {
                                 <div className="relative group">
                                     <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                     <input
-                                        required={true}
+                                        required
                                         name="password"
                                         value={formData.password}
                                         onChange={handleInputChange}
                                         type={showPassword ? "text" : "password"}
-                                        placeholder="Create Password"
-                                        maxLength={255}
+                                        placeholder="Create Password *"
                                         className="w-full pl-11 pr-12 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                     <button
@@ -278,13 +237,12 @@ export default function RegisterPage(): React.ReactNode {
                                 <div className="relative group">
                                     <HiOutlineLockClosed className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                     <input
-                                        required={true}
+                                        required
                                         name="repeatPassword"
                                         value={formData.repeatPassword}
                                         onChange={handleInputChange}
                                         type={showRepeatPassword ? "text" : "password"}
-                                        placeholder="Repeat Password"
-                                        maxLength={255}
+                                        placeholder="Repeat Password *"
                                         className="w-full pl-11 pr-12 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                     <button
@@ -317,13 +275,11 @@ export default function RegisterPage(): React.ReactNode {
                                 <div className="relative group">
                                     <HiOutlineHome className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                     <input
-                                        required={true}
                                         type="text"
                                         name="address1"
                                         value={formData.address1}
                                         onChange={handleInputChange}
                                         placeholder="Address Line 1"
-                                        maxLength={255}
                                         className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                 </div>
@@ -336,7 +292,6 @@ export default function RegisterPage(): React.ReactNode {
                                         value={formData.address2}
                                         onChange={handleInputChange}
                                         placeholder="Address Line 2"
-                                        maxLength={255}
                                         className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                     />
                                 </div>
@@ -345,26 +300,22 @@ export default function RegisterPage(): React.ReactNode {
                                     <div className="relative group">
                                         <HiOutlineOfficeBuilding className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                         <input
-                                            required={true}
                                             type="text"
                                             name="city"
                                             value={formData.city}
                                             onChange={handleInputChange}
                                             placeholder="City"
-                                            maxLength={100}
                                             className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                         />
                                     </div>
                                     <div className="relative group">
                                         <HiOutlineMap className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                         <input
-                                            required={true}
                                             type="text"
                                             name="state"
                                             value={formData.state}
                                             onChange={handleInputChange}
                                             placeholder="State"
-                                            maxLength={100}
                                             className="w-full pl-11 pr-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                         />
                                     </div>
@@ -374,7 +325,6 @@ export default function RegisterPage(): React.ReactNode {
                                     <div className="relative group">
                                         <HiOutlineGlobeAlt className="absolute left-4 top-1/2 -translate-y-1/2 text-black/60 text-lg group-focus-within:text-[#145a6e]" />
                                         <select
-                                            required={true}
                                             name="country"
                                             value={formData.country}
                                             onChange={handleInputChange}
@@ -388,13 +338,11 @@ export default function RegisterPage(): React.ReactNode {
                                     </div>
                                     <div className="relative group">
                                         <input
-                                            required={true}
                                             type="text"
                                             name="postcode"
                                             value={formData.postcode}
                                             onChange={handleInputChange}
                                             placeholder="Postcode"
-                                            maxLength={20}
                                             className="w-full px-4 py-3.5 bg-white/80 border border-transparent rounded-2xl focus:ring-2 focus:ring-[#145a6e] focus:bg-white text-black font-medium outline-none transition-all placeholder:text-black/40 text-sm"
                                         />
                                     </div>
@@ -414,7 +362,7 @@ export default function RegisterPage(): React.ReactNode {
 
                                     <label htmlFor="agreeTerms" className="flex items-center gap-3 cursor-pointer select-none">
                                         <input
-                                            required={true}
+                                            required
                                             type="checkbox"
                                             id="agreeTerms"
                                             name="agreeTerms"
