@@ -1,16 +1,16 @@
 import { getHotels } from "@/lib";
 import { Hotel } from "@/components/interface/hotel";
-import Header from "@/components/feature/hotel/Header";
-import Gallery from "@/components/feature/hotel/Gallery";
-import BookYourStay from "@/components/feature/hotel/BookYourStay";
-import AboutResort from "@/components/feature/hotel/AboutResort";
-import RoomCards from "@/components/feature/hotel/RoomCards";
-import PrimeLocation from "@/components/feature/hotel/PrimeLocation";
-import GuestReviews from "@/components/feature/hotel/GuestReviews";
-import HotelPolicies from "@/components/feature/hotel/HotelPolicies";
-import AmenitiesCarousel from "@/components/feature/hotel/AmenitiesCarousel";
-import ContactCard from "@/components/feature/hotel/ContactCard";
-import AwardsSection from "@/components/feature/hotel/AwardsSection";
+import Header from "@/components/ui/hotel/Header";
+import Gallery from "@/components/ui/hotel/Gallery";
+import BookYourStay from "@/components/ui/hotel/BookYourStay";
+import AboutResort from "@/components/ui/hotel/AboutResort";
+import RoomCards from "@/components/ui/hotel/RoomCards";
+import PrimeLocation from "@/components/ui/hotel/PrimeLocation";
+import GuestReviews from "@/components/ui/hotel/GuestReviews";
+import HotelPolicies from "@/components/ui/hotel/HotelPolicies";
+import AmenitiesCarousel from "@/components/ui/hotel/AmenitiesCarousel";
+import ContactCard from "@/components/ui/hotel/ContactCard";
+import AwardsSection from "@/components/ui/hotel/AwardsSection";
 
 export default async function HotelDetailsPage({ params }: { params: Promise<{ hotelId: string }> }): Promise<React.ReactNode> {
   const { hotelId }: { hotelId: string } = await params;

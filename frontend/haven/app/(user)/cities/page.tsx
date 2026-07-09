@@ -1,6 +1,6 @@
 import { getHotels, getImage } from "@/lib";
 import Routes from "@/router/routes";
-import CityCard from "@/components/ui/CityCard";
+import CityCard from "@/components/feature/CityCard";
 import React from "react";
 import {ImageResult} from "@/components/interface/ImageResult";
 

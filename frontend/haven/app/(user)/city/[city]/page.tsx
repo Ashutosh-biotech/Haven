@@ -1,5 +1,5 @@
 import { getHotels } from "@/lib";
-import HotelCard from "@/components/ui/HotelCard";
+import HotelCard from "@/components/feature/HotelCard";
 import { HotelMap } from "@/components/interface/hotels";
 import React from "react";
 
