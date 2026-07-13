@@ -1,13 +1,12 @@
 package app.haven.auth.service;
 
-import app.haven.auth.dto.RegisterRequestDTO;
+import app.haven.auth.dto.request.RegisterRequestDTO;
 import app.haven.auth.models.entity.User;
 import app.haven.auth.models.entity.UserAddress;
 import app.haven.auth.models.entity.UserPreferences;
 import app.haven.auth.models.entity.UserPlatformRole;
 import app.haven.auth.models.entity.PlatformRole;
 import app.haven.auth.models.enums.PlatformRoleEnum;
-import app.haven.auth.models.enums.UserStatus;
 import app.haven.auth.repository.UserRepository;
 import app.haven.auth.repository.PlatformRoleRepository;
 import app.haven.auth.repository.UserPlatformRoleRepository;
@@ -18,6 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 @AllArgsConstructor
@@ -30,7 +30,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public void registerUser(RegisterRequestDTO registerRequestDTO) {
+    public boolean registerUser(RegisterRequestDTO registerRequestDTO) {
         if (registerRequestDTO.email() == null || registerRequestDTO.email().isBlank()) {
             throw new IllegalArgumentException("Email cannot be empty");
         }
@@ -93,15 +93,17 @@ public class AuthService {
 
         userRepository.save(user);
 
-        PlatformRole guestRole = platformRoleRepository.findByName(PlatformRoleEnum.GUEST);
+        Optional<PlatformRole> guestRole = platformRoleRepository.findByName(PlatformRoleEnum.GUEST);
 
-        UserPlatformRole userPlatformRole = UserPlatformRole.builder()
-                .user(user)
-                .platformRole(guestRole)
-                .assignedAt(LocalDateTime.now())
-                .isActive(true)
-                .build();
-        userPlatformRoleRepository.save(userPlatformRole);
+        if (guestRole.isPresent()) {
+            UserPlatformRole userPlatformRole = UserPlatformRole.builder()
+                    .user(user)
+                    .platformRole(guestRole.get())
+                    .assignedAt(LocalDateTime.now())
+                    .isActive(true)
+                    .build();
+            userPlatformRoleRepository.save(userPlatformRole);
+        }
     }
 }
 

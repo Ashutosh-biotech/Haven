@@ -1,4 +1,4 @@
-package app.haven.auth.dto;
+package app.haven.auth.dto.response;
 
 public record LoginResponseDTO(
         String accessToken,
