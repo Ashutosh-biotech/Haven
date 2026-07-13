@@ -1,11 +1,13 @@
 package app.haven.auth.controller;
 
-import app.haven.auth.dto.LoginRequestDTO;
-import app.haven.auth.dto.RegisterRequestDTO;
+import app.haven.auth.dto.request.LoginRequestDTO;
+import app.haven.auth.dto.request.RegisterRequestDTO;
+import app.haven.auth.dto.response.RegisterResponseDTO;
 import app.haven.auth.service.AuthService;
 import jakarta.validation.Valid;
 import lombok.AllArgsConstructor;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -25,8 +27,12 @@ public class AuthPublicController {
     }
 
     @PostMapping("/register")
-    public ResponseEntity<String> registerRequest(@RequestBody @Valid RegisterRequestDTO registerRequestDTO){
-        authService.registerUser(registerRequestDTO);
-        return ResponseEntity.ok("pass");
+    public ResponseEntity<RegisterResponseDTO> registerRequest(@RequestBody @Valid RegisterRequestDTO registerRequestDTO){
+        try {
+            authService.registerUser(registerRequestDTO);
+            return ResponseEntity.status(HttpStatus.OK).body(RegisterResponseDTO.builder().message("Account created Successfully").build());
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(RegisterResponseDTO.builder().message(e.getMessage()).build());
+        }
     }
 }

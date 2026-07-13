@@ -1,4 +1,4 @@
-package app.haven.auth.dto;
+package app.haven.auth.dto.request;
 
 import app.haven.auth.dto.register.CountryDTO;
 import jakarta.validation.constraints.NotBlank;
