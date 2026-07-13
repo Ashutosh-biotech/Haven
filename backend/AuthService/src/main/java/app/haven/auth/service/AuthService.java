@@ -30,7 +30,7 @@ public class AuthService {
     private final PasswordEncoder passwordEncoder;
 
     @Transactional
-    public boolean registerUser(RegisterRequestDTO registerRequestDTO) {
+    public void registerUser(RegisterRequestDTO registerRequestDTO) {
         if (registerRequestDTO.email() == null || registerRequestDTO.email().isBlank()) {
             throw new IllegalArgumentException("Email cannot be empty");
         }
