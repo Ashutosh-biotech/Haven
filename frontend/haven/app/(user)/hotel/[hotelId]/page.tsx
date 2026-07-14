@@ -1,16 +1,16 @@
 import { getHotels } from "@/lib";
 import { Hotel } from "@/components/interface/hotel";
-import Header from "@/components/ui/hotel/Header";
-import Gallery from "@/components/ui/hotel/Gallery";
-import BookYourStay from "@/components/ui/hotel/BookYourStay";
-import AboutResort from "@/components/ui/hotel/AboutResort";
+import Header from "@/components/ui/hotel/header";
+import Gallery from "@/components/ui/hotel/gallery";
+import BookYourStay from "@/components/ui/hotel/book-your-stay";
+import AboutResort from "@/components/ui/hotel/about-resort";
 import RoomCards from "@/components/ui/hotel/room-cards";
 import PrimeLocation from "@/components/ui/hotel/prime-location";
-import GuestReviews from "@/components/ui/hotel/GuestReviews";
+import GuestReviews from "@/components/ui/hotel/guest-reviews";
 import HotelPolicies from "@/components/ui/hotel/hotel-policies";
-import AmenitiesCarousel from "@/components/ui/hotel/AmenitiesCarousel";
-import ContactCard from "@/components/ui/hotel/ContactCard";
-import AwardsSection from "@/components/ui/hotel/AwardsSection";
+import AmenitiesCarousel from "@/components/ui/hotel/amenities-carousel";
+import ContactCard from "@/components/ui/hotel/contact-card";
+import AwardsSection from "@/components/ui/hotel/awards-section";
 
 export default async function HotelDetailsPage({ params }: { params: Promise<{ hotelId: string }> }): Promise<React.ReactNode> {
   const { hotelId }: { hotelId: string } = await params;
