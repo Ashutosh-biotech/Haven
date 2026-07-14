@@ -1,4 +1,5 @@
 import { LuStar, LuMapPin, LuCircleChevronRight } from "react-icons/lu";
+import React from "react";
 
 interface PropsMap {
     coverImageUrl: string;

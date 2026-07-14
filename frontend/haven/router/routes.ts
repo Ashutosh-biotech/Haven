@@ -1,5 +1,5 @@
 type routesType = {
-    [key: string]: (...args: any[]) => string;
+    [key: string]: (...args: string[]) => string;
 }
 
 const Routes: routesType = {

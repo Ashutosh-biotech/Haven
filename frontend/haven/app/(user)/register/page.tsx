@@ -19,9 +19,9 @@ import {
 } from "react-icons/hi";
 import { FaGoogle, FaSpinner } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
-import { fetchCountries, CountryData } from "@/lib/utils/countryService";
+import { fetchCountries, CountryData } from "@/lib/services/country-service";
 import SearchableSelect from "@/components/feature/forms/SearchableSelect";
-import FloatingLabelInput from "@/components/feature/forms/FloatingLabelInput";
+import {UserRegistrationFormData} from "@/components/interface/UserRegistrationFormData";
 
 interface StrengthType {
     score: number;
@@ -59,12 +59,13 @@ export default function RegisterPage(): React.ReactNode {
     // Country Fetching State
     const [countries, setCountries] = useState<CountryData[]>([]);
     const [isLoadingCountries, setIsLoadingCountries] = useState<boolean>(true);
+    const [formSubmitted, setFormSubmitted] = useState<boolean>(false);
 
-    const [formData, setFormData] = useState({
+    const [formData, setFormData] = useState<UserRegistrationFormData>({
         firstName: "",
         lastName: "",
         email: "",
-        phone: "",
+        phone: 0,
         password: "",
         repeatPassword: "",
         address1: "",
@@ -72,7 +73,7 @@ export default function RegisterPage(): React.ReactNode {
         city: "",
         state: "",
         country: null as CountryData | null,
-        postcode: "",
+        postcode: 0,
         isDefaultAddress: false,
         agreeTerms: false
     });
@@ -129,6 +130,7 @@ export default function RegisterPage(): React.ReactNode {
             if (!formData.postcode) return toast.error("Please enter your postcode.");
             if (!formData.agreeTerms) return toast.error("You must agree to the Terms & Conditions.");
         }
+        setFormSubmitted(true);
         toast.success("Account creation requested! Payload logged to console.");
         console.log("Full Payload:", JSON.stringify(formData, null, 2));
     };
@@ -177,8 +179,6 @@ export default function RegisterPage(): React.ReactNode {
                                     <FaGoogle className="text-red-500 text-base" />
                                     <span>Register with Google</span>
                                 </button>
-                                <FloatingLabelInput type="text" label="First Name" id="firstName" value={formData.firstName} onChange={handleStandardInputChange} maxLength={80} />
-
                                 <div className="relative flex py-1 items-center mb-4">
                                     <div className="grow border-t border-black/20"></div>
                                     <span className="shrink mx-3 text-[9px] text-black uppercase tracking-[0.2em] font-black">Or use email</span>
@@ -392,7 +392,7 @@ export default function RegisterPage(): React.ReactNode {
                                     <div className="relative group">
                                         <input
                                             required
-                                            type="text"
+                                            type="number"
                                             name="postcode"
                                             value={formData.postcode}
                                             onChange={handleStandardInputChange}
@@ -438,10 +438,15 @@ export default function RegisterPage(): React.ReactNode {
                                 <button
                                     type="button"
                                     onClick={prevStep}
-                                    className="flex items-center justify-center gap-2 flex-1 py-3.5 bg-black/40 hover:bg-black/60 text-white font-black rounded-2xl transition-all active:scale-95 text-xs uppercase tracking-wider cursor-pointer"
+                                    disabled={formSubmitted}
+                                    className="flex items-center justify-center gap-2 flex-1 py-3.5 bg-black/40 disabled:bg-black/40 disabled:cursor-not-allowed hover:bg-black/60 text-white font-black rounded-2xl transition-all active:scale-95 disabled:active:scale-100 text-xs uppercase tracking-wider cursor-pointer"
                                 >
-                                    <HiArrowLeft className="text-base" />
-                                    <span>Back</span>
+                                    {formSubmitted ?
+                                        "Please Wait !!!" :
+                                        <>
+                                            <HiArrowLeft className="text-base" />
+                                            <span>Back</span>
+                                        </> }
                                 </button>
                             )}
 
@@ -457,9 +462,15 @@ export default function RegisterPage(): React.ReactNode {
                             ) : (
                                 <button
                                     type="submit"
-                                    className="flex-1 py-3.5 bg-[#145a6e] hover:bg-black text-white font-black rounded-2xl shadow-xl transition-all transform active:scale-95 uppercase tracking-widest text-xs cursor-pointer"
+                                    disabled={formSubmitted}
+                                    className={(formSubmitted && "flex justify-center gap-3 ") + "flex-1 py-3.5 bg-[#145a6e] disabled:bg-[#24a2c7] disabled:cursor-not-allowed hover:bg-black text-white font-black rounded-2xl shadow-xl transition-all transform active:scale-95 disabled:active:scale-100 uppercase tracking-widest text-xs cursor-pointer"}
                                 >
-                                    Complete Registration
+                                    {formSubmitted ?
+                                        <>
+                                            <FaSpinner className={"text-base animate-spin"} />
+                                            <span>Processing</span>
+                                        </> :
+                                        "Complete Registration"}
                                 </button>
                             )}
                         </div>
