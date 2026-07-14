@@ -1,4 +1,4 @@
-import {CountryData} from "@/lib/services/country-service";
+import {CountryData} from "@/lib/services/country.service";
 
 export interface UserRegistrationFormData {
     firstName: string,

@@ -1,4 +1,4 @@
-export { getHotels } from "./services/hotel-services";
-export { getImage } from "./services/imageServices";
-export { loginRequest } from "./services/loginService";
-export { RegisterUser } from "./services/RegisterService"
+export { getHotels } from "./services/hotel.services";
+export { getImage } from "./services/image.services";
+export { loginRequest } from "./services/login.service";
+export { RegisterUser } from "./services/Register.service"

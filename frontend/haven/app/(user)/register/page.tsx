@@ -19,7 +19,7 @@ import {
 } from "react-icons/hi";
 import { FaGoogle, FaSpinner } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
-import { fetchCountries, CountryData } from "@/lib/services/country-service";
+import { fetchCountries, CountryData } from "@/lib/services/country.service";
 import SearchableSelect from "@/components/feature/forms/SearchableSelect";
 import {UserRegistrationFormData} from "@/components/interface/UserRegistrationFormData";
 

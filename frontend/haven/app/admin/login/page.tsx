@@ -1,6 +1,6 @@
 "use client";
 
-import { loginRequest } from "@/lib/services/loginService";
+import { loginRequest } from "@/lib/services/login.service";
 import React, {useState} from "react";
 import {BiLoaderAlt} from "react-icons/bi";
 import {HiOutlineShieldCheck} from "react-icons/hi2";
