@@ -21,7 +21,10 @@ import { FaGoogle, FaSpinner } from "react-icons/fa";
 import { toast, ToastContainer } from "react-toastify";
 import { fetchCountries, CountryData } from "@/lib/services/country.service";
 import SearchableSelect from "@/components/feature/forms/SearchableSelect";
-import {UserRegistrationFormData} from "@/components/interface/UserRegistrationFormData";
+import {UserRegistrationFormData} from "@/components/interface/user-registration-form-data";
+import {RegisterUser} from "@/lib";
+import {redirect} from "next/navigation";
+import Routes from "@/router/routes";
 
 interface StrengthType {
     score: number;
@@ -121,7 +124,7 @@ export default function RegisterPage(): React.ReactNode {
 
     const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
         if (step === 3) {
             if (!formData.address1) return toast.error("Please enter your address line 1.");
@@ -131,8 +134,13 @@ export default function RegisterPage(): React.ReactNode {
             if (!formData.agreeTerms) return toast.error("You must agree to the Terms & Conditions.");
         }
         setFormSubmitted(true);
-        toast.success("Account creation requested! Payload logged to console.");
-        console.log("Full Payload:", JSON.stringify(formData, null, 2));
+        if(await RegisterUser(formData)){
+            toast.success("Account creation requested! Payload logged to console.");
+            redirect(Routes.login())
+        } else {
+            toast.error("Something went wrong.");
+        }
+        setFormSubmitted(false);
     };
 
     return (
