@@ -10,3 +10,4 @@ backend/AuthService/src/main/resources/haven-auth.p12
 backend/AuthService/.env
 .vscode
 haven.code-workspace
+frontend/haven/assets/data/Countries_Min.json
