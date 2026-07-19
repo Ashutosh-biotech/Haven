@@ -40,7 +40,6 @@ public class PlatformRoleSeeder implements CommandLineRunner {
             PlatformRoleEnum name,
             String description
     ) {
-
         platformRoleRepository.findByName(name)
                 .orElseGet(() ->
                         platformRoleRepository.save(

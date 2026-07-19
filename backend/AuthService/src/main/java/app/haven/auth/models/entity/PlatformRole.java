@@ -36,12 +36,10 @@ public class PlatformRole {
     @Id
     @UuidGenerator
     @Column(nullable = false, updatable = false)
-    @NotBlank
     private UUID platformRoleId;
 
     @Enumerated(EnumType.STRING)
     @Column(nullable = false)
-    @NotBlank
     private PlatformRoleEnum name;
 
     private String Description;
@@ -55,7 +53,6 @@ public class PlatformRole {
     @Builder.Default
     private Set<Permission> permissions = new HashSet<>();
 
-    @NotBlank
     @Column(nullable = false)
     @CreatedDate
     private LocalDateTime createdAt;
