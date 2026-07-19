@@ -4,10 +4,11 @@ import {UserRegistrationFormData} from "@/components/interface/user-registration
 
 async function RegisterUser(jsonData:UserRegistrationFormData): Promise<boolean> {
     await axios.post(BackendRoutes.register(), {
-        headers: {},
         body: JSON.stringify(jsonData)
+    }).then(res => {
+        return res.status === 200;
     });
-    return true;
+    return false;
 }
 
 export {RegisterUser};
