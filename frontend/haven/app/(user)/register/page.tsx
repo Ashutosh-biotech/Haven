@@ -124,7 +124,7 @@ export default function RegisterPage(): React.ReactNode {
 
     const prevStep = () => setStep(prev => Math.max(prev - 1, 1));
 
-    const handleSubmit = async (e: React.FormEvent) => {
+    const handleSubmit = async (e: React.SyntheticEvent<HTMLFormElement>) => {
         e.preventDefault();
         if (step === 3) {
             if (!formData.address1) return toast.error("Please enter your address line 1.");
