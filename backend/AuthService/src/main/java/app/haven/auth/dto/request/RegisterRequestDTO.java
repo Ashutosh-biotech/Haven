@@ -7,7 +7,7 @@ public record RegisterRequestDTO(
     @NotBlank String firstName,
     String lastName,
     String email,
-    long phone,
+    Long phone,
     String password,
     String repeatPassword,
     CountryDTO country,
@@ -15,7 +15,7 @@ public record RegisterRequestDTO(
     String address2,
     String city,
     String state,
-    long postcode,
-    boolean isDefaultAddress,
-    boolean agreeTerms
+    Long postcode,
+    Boolean isDefaultAddress,
+    Boolean agreeTerms
 ) {}
