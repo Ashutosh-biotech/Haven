@@ -3,11 +3,15 @@ import {BackendRoutes} from "@/router/routes";
 import {UserRegistrationFormData} from "@/components/interface/user-registration-form-data";
 
 async function RegisterUser(jsonData:UserRegistrationFormData): Promise<boolean> {
-    await axios.post(BackendRoutes.register(), {
-        body: JSON.stringify(jsonData)
-    }).then(res => {
-        return res.status === 200;
-    });
+    try {
+        await axios.post(BackendRoutes.register(), {
+            body: JSON.stringify(jsonData)
+        }).then(res => {
+            return res.status === 200;
+        });
+    } catch (error) {
+        console.error(error);
+    }
     return false;
 }
 

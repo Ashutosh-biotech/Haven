@@ -16,7 +16,7 @@ const backendBaseRoute = "http://localhost:8080/api/v1";
 
 const BackendRoutes: routesType = {
 
-    register: () :string => backendBaseRoute+"/public/register"
+    register: () :string => backendBaseRoute+"/public/auth/register"
 
 }
 
