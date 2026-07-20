@@ -471,7 +471,7 @@ export default function RegisterPage(): React.ReactNode {
                                 <button
                                     type="submit"
                                     disabled={formSubmitted}
-                                    className={(formSubmitted && "flex justify-center gap-3 ") + "flex-1 py-3.5 bg-[#145a6e] disabled:bg-[#24a2c7] disabled:cursor-not-allowed hover:bg-black text-white font-black rounded-2xl shadow-xl transition-all transform active:scale-95 disabled:active:scale-100 uppercase tracking-widest text-xs cursor-pointer"}
+                                    className={(formSubmitted && " flex justify-center gap-3 ") + " flex-1 py-3.5 bg-[#145a6e] disabled:bg-[#24a2c7] disabled:cursor-not-allowed hover:bg-black text-white font-black rounded-2xl shadow-xl transition-all transform active:scale-95 disabled:active:scale-100 uppercase tracking-widest text-xs cursor-pointer"}
                                 >
                                     {formSubmitted ?
                                         <>
