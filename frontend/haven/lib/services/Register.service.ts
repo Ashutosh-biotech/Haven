@@ -7,7 +7,6 @@ async function RegisterUser(jsonData: UserRegistrationFormData): Promise<boolean
 
         return res.status === 200;
     } catch (error) {
-        console.error(error);
         return false;
     }
 }
