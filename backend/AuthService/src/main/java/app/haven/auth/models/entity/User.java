@@ -64,7 +64,6 @@ public class User {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userId;
 
     @NotBlank

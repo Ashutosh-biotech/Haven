@@ -29,7 +29,6 @@ public class UserPlatformRole {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userPlatformRoleId;
 
     @ManyToOne(fetch = FetchType.LAZY)
