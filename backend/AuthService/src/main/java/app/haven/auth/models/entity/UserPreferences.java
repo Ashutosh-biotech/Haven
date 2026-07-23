@@ -39,7 +39,6 @@ public class UserPreferences {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userPreferencesId;
 
     @OneToOne(fetch = FetchType.LAZY)

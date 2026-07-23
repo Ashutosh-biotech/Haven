@@ -37,7 +37,6 @@ public class UserAuditLog {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID UserAuditLogId;
 
     @Column(nullable = false, length = 36)

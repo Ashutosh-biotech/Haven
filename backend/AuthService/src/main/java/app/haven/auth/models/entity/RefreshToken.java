@@ -40,7 +40,6 @@ public class RefreshToken {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID refreshTokenId;
 
     @ManyToOne(fetch = FetchType.LAZY)

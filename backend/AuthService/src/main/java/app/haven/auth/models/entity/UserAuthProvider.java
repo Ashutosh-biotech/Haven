@@ -43,7 +43,6 @@ public class UserAuthProvider {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userAuthProviderId;
 
     @ManyToOne(fetch = FetchType.LAZY)

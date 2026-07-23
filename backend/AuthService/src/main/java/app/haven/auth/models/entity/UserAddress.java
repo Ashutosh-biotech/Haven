@@ -28,7 +28,6 @@ public class UserAddress {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userAddressId;
 
     @ManyToOne(fetch = FetchType.LAZY, optional = false)

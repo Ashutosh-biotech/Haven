@@ -42,7 +42,6 @@ public class UserOtp {
     @Id
     @Column(updatable = false, nullable = false)
     @UuidGenerator
-    @NotBlank
     private UUID userOtpId;
 
     @ManyToOne(fetch = FetchType.LAZY)
