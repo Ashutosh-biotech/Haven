@@ -184,8 +184,7 @@ public class User {
     private String createdBy;
 
     @Version
-    @Builder.Default
-    private Long version = 0L;
+    private Long version;
 
     @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
     private UserPreferences preferences;
@@ -205,7 +204,8 @@ public class User {
     @Builder.Default
     private List<HotelStaff> hotelStaffAssignments = new ArrayList<>();
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "user", cascade = CascadeType.ALL,
+            fetch = FetchType.LAZY, orphanRemoval = true)
     @Builder.Default
     private List<UserPlatformRole> userPlatformRoles = new ArrayList<>();
 

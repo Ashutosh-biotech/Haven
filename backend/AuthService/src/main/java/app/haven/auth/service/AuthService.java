@@ -56,7 +56,6 @@ public class AuthService {
                         ? registerRequestDTO.country().timezone() : "Asia/Kolkata")
                 .createdAt(LocalDateTime.now())
                 .updatedAt(LocalDateTime.now())
-                .version(0L)
                 .addresses(new ArrayList<>())
                 .authProviders(new ArrayList<>())
                 .hotelStaffAssignments(new ArrayList<>())
@@ -91,18 +90,19 @@ public class AuthService {
             user.getAddresses().add(address);
         }
 
-        userRepository.save(user);
+        User savedUser = userRepository.save(user);
 
         Optional<PlatformRole> guestRole = platformRoleRepository.findByName(PlatformRoleEnum.GUEST);
 
         if (guestRole.isPresent()) {
             UserPlatformRole userPlatformRole = UserPlatformRole.builder()
-                    .user(user)
+                    .user(savedUser)
                     .platformRole(guestRole.get())
                     .assignedAt(LocalDateTime.now())
                     .isActive(true)
                     .build();
             userPlatformRoleRepository.save(userPlatformRole);
+            savedUser.getUserPlatformRoles().add(userPlatformRole);
         }
     }
 }
