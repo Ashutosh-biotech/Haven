@@ -135,7 +135,6 @@ export default function RegisterPage(): React.ReactNode {
         }
         setFormSubmitted(true);
         if(await RegisterUser(formData)){
-            toast.success("Account creation requested! Payload logged to console.");
             redirect(Routes.login())
         } else {
             toast.error("Something went wrong.");

@@ -5,6 +5,7 @@ import login_bg from "@/assets/images/login-bg.jpg";
 import { LuUser, LuLock, LuEyeOff, LuEye, LuCircleCheck } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
+import Routes from "@/router/routes";
 
 export default function LoginPage(): React.ReactNode {
     const [email, setEmail] = useState<string>("");
@@ -16,16 +17,16 @@ export default function LoginPage(): React.ReactNode {
     const isPasswordValid: boolean = password.length >= 6;
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat p-4" style={{backgroundImage: `url(${login_bg.src})`}}>
+        <div className="flex items-center justify-center min-h-screen bg-cover bg-center bg-no-repeat p-4" style={{ backgroundImage: `url(${login_bg.src})` }}>
             <div className="bg-white/50 backdrop-blur-xl border border-white/70 rounded-3xl p-8 sm:p-10 w-full max-w-md shadow-2xl relative overflow-hidden">
                 {/* Subtle top right gradient blob */}
                 <div className="absolute -top-12 -right-12 w-48 h-48 bg-cyan-100 rounded-full opacity-60 pointer-events-none blur-3xl"></div>
-                
+
                 <div className="relative z-10 flex flex-col items-center">
                     <h1 className="text-3xl font-bold text-[#0f172a] text-center mb-8 leading-tight">
-                        Welcome back<br/>to Haven.
+                        Welcome back<br />to Haven.
                     </h1>
-                    
+
                     {/* Google Button */}
                     <button className="w-full flex items-center justify-center gap-3 border border-gray-300 bg-white/50 hover:bg-white/80 rounded-full py-3 px-4 transition-colors">
                         <FcGoogle className="w-6 h-6" />
@@ -44,8 +45,8 @@ export default function LoginPage(): React.ReactNode {
                         {/* Email Input */}
                         <div className={`flex items-center border rounded-full px-4 py-3 bg-white/60 backdrop-blur-sm transition-all focus-within:bg-white/80 ${isEmailValid ? 'border-green-500' : 'border-gray-300 focus-within:border-[#286f87]'}`}>
                             <LuUser className={`w-5 h-5 mr-3 shrink-0 ${isEmailValid ? 'text-green-500' : 'text-gray-500'}`} />
-                            <input 
-                                type="email" 
+                            <input
+                                type="email"
                                 placeholder="Email Address"
                                 value={email}
                                 onChange={(e) => setEmail(e.target.value)}
@@ -57,9 +58,9 @@ export default function LoginPage(): React.ReactNode {
                         {/* Password Input */}
                         <div className={`flex items-center border rounded-full px-4 py-3 bg-white/60 backdrop-blur-sm transition-all focus-within:bg-white/80 ${isPasswordValid ? 'border-green-500' : 'border-gray-300 focus-within:border-[#286f87]'}`}>
                             <LuLock className={`w-5 h-5 mr-3 shrink-0 ${isPasswordValid ? 'text-green-500' : 'text-gray-500'}`} />
-                            <input 
-                                type={showPassword ? "text" : "password"} 
-                                placeholder="Password" 
+                            <input
+                                type={showPassword ? "text" : "password"}
+                                placeholder="Password"
                                 value={password}
                                 onChange={(e) => setPassword(e.target.value)}
                                 className="flex-1 bg-transparent outline-none text-sm text-[#0f172a] placeholder-gray-500 font-medium"
@@ -89,7 +90,7 @@ export default function LoginPage(): React.ReactNode {
 
                     {/* Footer */}
                     <div className="mt-8 text-sm text-[#0f172a] font-bold">
-                        New to Haven? <Link href="#" className="text-[#286f87] hover:underline cursor-pointer">Create Account</Link>
+                        New to Haven? <Link href={Routes.register()} className="text-[#286f87] hover:underline cursor-pointer">Create Account</Link>
                     </div>
                 </div>
             </div>
