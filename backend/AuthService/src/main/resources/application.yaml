@@ -14,8 +14,8 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-#  profiles:
-#    active: seeder
+  # profiles:
+  #   active: seeder
 
 server:
   port: 8082
