@@ -1,4 +1,4 @@
-import { Landmark } from "@/components/interface/hotel";
+import { Landmark } from "@/lib/interface/hotel";
 import { LuMapPin } from "react-icons/lu";
 
 interface PrimeLocationProps {

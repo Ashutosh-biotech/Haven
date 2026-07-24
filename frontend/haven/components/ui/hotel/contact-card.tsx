@@ -1,4 +1,4 @@
-import { Contact } from "@/components/interface/hotel";
+import { Contact } from "@/lib/interface/hotel";
 import { LuPhone, LuMail, LuGlobe } from "react-icons/lu";
 
 interface ContactCardProps {
@@ -19,7 +19,7 @@ export default function ContactCard({ contact }: ContactCardProps): React.ReactN
         {contact.phone && (
           <div className="flex items-center gap-3">
             <span className="flex items-center justify-center size-8 rounded-full bg-teal-50 text-teal-600 shrink-0">
-               <LuPhone className="size-4" />
+              <LuPhone className="size-4" />
             </span>
             <div>
               <p className="text-xs text-gray-500 font-medium">Phone</p>

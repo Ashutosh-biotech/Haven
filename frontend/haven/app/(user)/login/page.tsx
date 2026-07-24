@@ -5,7 +5,7 @@ import login_bg from "@/assets/images/login-bg.jpg";
 import { LuUser, LuLock, LuEyeOff, LuEye, LuCircleCheck } from "react-icons/lu";
 import { FcGoogle } from "react-icons/fc";
 import Link from 'next/link';
-import Routes from "@/router/routes";
+import Routes from "@/lib/router/routes";
 
 export default function LoginPage(): React.ReactNode {
     const [email, setEmail] = useState<string>("");

@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { HotelMap } from "../interface/hotels";
-import Routes from "@/router/routes";
+import { HotelMap } from "../../lib/interface/hotels";
+import Routes from "@/lib/router/routes";
 import { LuStar, LuMapPin } from "react-icons/lu";
 
-export default function HotelCard({hotel}: {hotel: HotelMap}): React.ReactNode {
+export default function HotelCard({ hotel }: { hotel: HotelMap }): React.ReactNode {
     return (
         <div className="max-w-md mx-auto bg-white rounded-xl shadow-md overflow-hidden border border-slate-200 hover:shadow-2xl transition-shadow duration-300 group">
             <div className="relative h-48 w-full">
@@ -14,9 +14,9 @@ export default function HotelCard({hotel}: {hotel: HotelMap}): React.ReactNode {
                 />
                 {
                     hotel.averageRating === null ? "" : (<div className="absolute top-3 left-3 flex gap-2">
-                    <span className="bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-2 py-1 rounded shadow-sm flex gap-2 items-center">
-                        {hotel.averageRating} <span className="size-3 flex items-center justify-center"><LuStar className="size-3" fill={"currentColor"} /></span>
-                    </span>
+                        <span className="bg-white/90 backdrop-blur-sm text-slate-800 text-xs font-semibold px-2 py-1 rounded shadow-sm flex gap-2 items-center">
+                            {hotel.averageRating} <span className="size-3 flex items-center justify-center"><LuStar className="size-3" fill={"currentColor"} /></span>
+                        </span>
                     </div>)
                 }
 

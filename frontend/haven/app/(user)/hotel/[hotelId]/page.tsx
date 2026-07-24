@@ -1,5 +1,5 @@
 import { getHotels } from "@/lib";
-import { Hotel } from "@/components/interface/hotel";
+import { Hotel } from "@/lib/interface/hotel";
 import Header from "@/components/ui/hotel/header";
 import Gallery from "@/components/ui/hotel/gallery";
 import BookYourStay from "@/components/ui/hotel/book-your-stay";

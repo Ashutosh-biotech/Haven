@@ -1,8 +1,8 @@
 import { getHotels, getImage } from "@/lib";
-import Routes from "@/router/routes";
+import Routes from "@/lib/router/routes";
 import CityCard from "@/components/feature/CityCard";
 import React from "react";
-import {ImageResult} from "@/components/interface/ImageResult";
+import { ImageResult } from "@/lib/interface/ImageResult";
 
 export default async function AllCitiesPage(): Promise<React.ReactNode> {
 
@@ -21,7 +21,7 @@ export default async function AllCitiesPage(): Promise<React.ReactNode> {
                         const image: ImageResult = await getImage(city);
 
                         return (
-                            <CityCard data={{name: city, slug: city, img: image, url: Routes.city(city), grid: true}} key={city} />
+                            <CityCard data={{ name: city, slug: city, img: image, url: Routes.city(city), grid: true }} key={city} />
                         )
                     })}
                 </div>

@@ -1,6 +1,6 @@
 import Image, { StaticImageData } from "next/image";
 import Link from "next/link";
-import {ImageResult} from "@/components/interface/ImageResult";
+import { ImageResult } from "@/lib/interface/ImageResult";
 
 type cityCardProps = {
     data: {
@@ -13,7 +13,7 @@ type cityCardProps = {
     };
 }
 
-export default function CityCard({data}: cityCardProps) {
+export default function CityCard({ data }: cityCardProps) {
     return (
         <div
             key={data.slug}

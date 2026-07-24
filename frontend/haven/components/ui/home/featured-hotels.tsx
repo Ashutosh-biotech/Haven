@@ -1,9 +1,9 @@
 import Link from "next/link";
-import { type HotelMap } from "../../interface/hotels";
+import { type HotelMap } from "../../../lib/interface/hotels";
 import { getHotels } from "@/lib";
 import { LuBuilding2, LuArrowRight } from "react-icons/lu";
 import HotelCard from "@/components/feature/HotelCard";
-import Routes from "@/router/routes";
+import Routes from "@/lib/router/routes";
 
 export async function FeaturedHotels(): Promise<React.ReactNode> {
     const hotelsData: { results: HotelMap[] } = await getHotels("", "limit=5");

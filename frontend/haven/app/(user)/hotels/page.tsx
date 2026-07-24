@@ -1,4 +1,4 @@
-import { HotelMap } from "@/components/interface/hotels";
+import { HotelMap } from "@/lib/interface/hotels";
 import HotelCard from "@/components/feature/HotelCard";
 import { getHotels } from "@/lib";
 import React from "react";
@@ -6,7 +6,7 @@ import React from "react";
 export default async function HotelsPage(): Promise<React.ReactNode> {
     const hotelsData: { results: HotelMap[] } = await getHotels("", "");
     const results: HotelMap[] = hotelsData?.results || [];
-    
+
     return (
         <div className="flex justify-center items-center my-36">
             <div className="container mx-auto">

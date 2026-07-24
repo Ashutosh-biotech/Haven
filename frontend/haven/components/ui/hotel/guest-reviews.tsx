@@ -1,5 +1,5 @@
-import { Ratings, CategoryRatings } from "@/components/interface/hotel";
-import { Review } from "@/components/interface/review";
+import { Ratings, CategoryRatings } from "@/lib/interface/hotel";
+import { Review } from "@/lib/interface/review";
 import { LuStar } from "react-icons/lu";
 
 interface GuestReviewsProps {

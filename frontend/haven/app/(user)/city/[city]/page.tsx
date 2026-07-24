@@ -1,6 +1,6 @@
 import { getHotels } from "@/lib";
 import HotelCard from "@/components/feature/HotelCard";
-import { HotelMap } from "@/components/interface/hotels";
+import { HotelMap } from "@/lib/interface/hotels";
 import React from "react";
 
 export default async function CityPage({ params }: { params: Promise<{ city: string }> }): Promise<React.ReactNode> {

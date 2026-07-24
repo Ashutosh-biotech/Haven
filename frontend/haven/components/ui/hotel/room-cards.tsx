@@ -1,4 +1,4 @@
-import { RoomType } from "@/components/interface/room";
+import { RoomType } from "@/lib/interface/room";
 import { LuTriangleAlert } from "react-icons/lu";
 
 interface RoomCardsProps {

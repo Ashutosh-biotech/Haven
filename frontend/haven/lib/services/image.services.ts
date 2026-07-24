@@ -2,7 +2,7 @@ import { fetchFromPexels } from "../providers/pexels.provider";
 import { fetchFromUnsplash } from "../providers/unsplash.provider";
 import { fetchFromPixabay } from "../providers/pixabay.provider";
 import { getCache, setCache } from "../cache/memory.cache";
-import {ImageResult} from "@/components/interface/ImageResult";
+import { ImageResult } from "@/lib/interface/ImageResult";
 
 function normalize(query: string) {
   return query.toLowerCase().trim();

@@ -1,5 +1,5 @@
 "use client";
-import Routes from '@/router/routes';
+import Routes from '@/lib/router/routes';
 import Link from 'next/link';
 import React, { useState } from 'react';
 import { LuMenu, LuX, LuBuilding2 } from 'react-icons/lu';

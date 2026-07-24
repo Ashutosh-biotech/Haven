@@ -1,4 +1,4 @@
-import { Award, Policies } from "@/components/interface/hotel";
+import { Award, Policies } from "@/lib/interface/hotel";
 import { LuStar, LuTrophy, LuInfo, LuClock, LuBed } from "react-icons/lu";
 
 interface AwardsAndPoliciesProps {

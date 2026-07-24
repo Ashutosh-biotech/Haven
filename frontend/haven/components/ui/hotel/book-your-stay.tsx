@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { RoomType } from "@/components/interface/room";
+import { RoomType } from "@/lib/interface/room";
 import { LuCheck } from "react-icons/lu";
 
 interface BookYourStayProps {
@@ -91,7 +91,7 @@ export default function BookYourStay({ roomTypes, freeCancellation, depositRequi
         {freeCancellation && (
           <div className="flex items-center gap-2">
             <span className="flex items-center justify-center size-5 rounded-full bg-emerald-100 text-emerald-600">
-                <LuCheck className="size-3" strokeWidth={3} />
+              <LuCheck className="size-3" strokeWidth={3} />
             </span>
             <span className="text-sm text-emerald-700 font-medium">Free Cancellation</span>
           </div>
@@ -99,7 +99,7 @@ export default function BookYourStay({ roomTypes, freeCancellation, depositRequi
         {!depositRequired && (
           <div className="flex items-center gap-2">
             <span className="flex items-center justify-center size-5 rounded-full bg-emerald-100 text-emerald-600">
-                <LuCheck className="size-3" strokeWidth={3} />
+              <LuCheck className="size-3" strokeWidth={3} />
             </span>
             <span className="text-sm text-emerald-700 font-medium">No Prepayment Needed</span>
           </div>

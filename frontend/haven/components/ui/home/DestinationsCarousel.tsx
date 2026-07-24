@@ -1,8 +1,8 @@
-import Routes from "@/router/routes";
+import Routes from "@/lib/router/routes";
 import CityCard from "@/components/feature/CityCard";
 import { getImage } from "@/lib";
 import React from "react";
-import { ImageResult } from "@/components/interface/ImageResult";
+import { ImageResult } from "@/lib/interface/ImageResult";
 import { CarouselControls } from "@/components/ui/home/destinationCarousel/CarouselControl";
 
 type citiesType = {

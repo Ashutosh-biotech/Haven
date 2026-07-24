@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { MediaItem } from "@/components/interface/hotel";
+import { MediaItem } from "@/lib/interface/hotel";
 
 interface GalleryProps {
   gallery: MediaItem[];
@@ -29,11 +29,10 @@ export default function Gallery({ gallery }: GalleryProps): React.ReactNode {
           <button
             key={idx}
             onClick={() => setActiveIndex(idx)}
-            className={`relative rounded-lg overflow-hidden h-[70px] cursor-pointer transition-all duration-300 ${
-              activeIndex === idx
+            className={`relative rounded-lg overflow-hidden h-[70px] cursor-pointer transition-all duration-300 ${activeIndex === idx
                 ? "ring-2 ring-teal-500 ring-offset-2 ring-offset-white shadow-lg"
                 : "opacity-70 hover:opacity-100"
-            }`}
+              }`}
           >
             <img
               src={item.url}

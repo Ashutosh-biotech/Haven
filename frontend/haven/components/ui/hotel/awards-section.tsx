@@ -1,4 +1,4 @@
-import { Award } from "@/components/interface/hotel";
+import { Award } from "@/lib/interface/hotel";
 import { LuTrophy } from "react-icons/lu";
 
 interface AwardsSectionProps {
@@ -37,7 +37,7 @@ export default function AwardsSection({ awards }: AwardsSectionProps): React.Rea
             className="flex items-start gap-4 bg-linear-to-r from-amber-50 to-yellow-50 border border-amber-200 rounded-xl p-5 hover:shadow-md transition-shadow"
           >
             <div className="size-12 rounded-full bg-linear-to-br from-amber-400 to-yellow-500 flex items-center justify-center text-white shadow-sm shrink-0 mt-1">
-                <LuTrophy className="size-6" />
+              <LuTrophy className="size-6" />
             </div>
             <div>
               <h4 className="text-sm font-bold text-gray-900 mb-1">{award.name}</h4>
